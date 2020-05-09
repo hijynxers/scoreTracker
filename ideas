@@ -1,0 +1,29 @@
+homepage
+- select game
+    - starts the game mode
+    - different button for each game
+
+number of players
+- just a page with a slider for number of players
+- and a button to start
+ 
+player names
+- like a bowling style add name thing with number of slots from "number of players" page
+- start button
+- check box to say who is dealing first
+
+start of round
+- who is dealing
+- round number
+- button to say round is over
+
+determine points
+- box to add score into
+- name of player
+- done 
+    - does check that all players have a score
+    - if hit a second time keep going anyway
+
+end of round score tally
+- recycler of each player and their score
+    - lowest to highest
