@@ -29,7 +29,7 @@
         android:id="@+id/tv_wildCard"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="K's are wild"
+        android:text="3's are wild"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
