@@ -34,7 +34,7 @@ class ComputeScoreActivity : AppCompatActivity() {
 
         val layoutManager = LinearLayoutManager(this)
         rv_computeScore.layoutManager = layoutManager
-        tv_wildCard.text = "${convertWildcard()}'s are wild"
+        updateWildcard()
     }
 
     fun onTallyScoreClicked(view: View) {
@@ -59,6 +59,7 @@ class ComputeScoreActivity : AppCompatActivity() {
         updateWildcard()
 
         if (wildcard == 14) {
+            tv_wildCard.text = "Game over"
             val toast = Toast.makeText(this, "Game is over", Toast.LENGTH_SHORT)
             toast.show()
         }
