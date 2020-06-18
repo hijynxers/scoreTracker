@@ -5,14 +5,11 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.EditText
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.grapevineindustries.scoretracker.R
 import com.grapevineindustries.scoretracker.model.Player
-import kotlinx.android.synthetic.main.activity_popup_calc.*
-import kotlinx.android.synthetic.main.compute_score_list_item.*
-import kotlinx.android.synthetic.main.compute_score_list_item.view.*
+import kotlinx.android.synthetic.main.dialog_popup_calc.*
 import kotlinx.android.synthetic.main.compute_score_list_item.view.btn_calcScore
 
 class ComputeScoreRecyclerAdapter(val context: Context, val players: ArrayList<Player>): RecyclerView.Adapter<ComputeScoreRecyclerAdapter.ComputeScoreHolder>() {
@@ -47,7 +44,7 @@ class ComputeScoreRecyclerAdapter(val context: Context, val players: ArrayList<P
     private fun popupCalc(view: View) {
 
         val calcDialog = Dialog(context)
-        calcDialog.setContentView(R.layout.activity_popup_calc)
+        calcDialog.setContentView(R.layout.dialog_popup_calc)
         calcDialog.setTitle("Add Score:")
 
         val btn3 = calcDialog.btn_3
