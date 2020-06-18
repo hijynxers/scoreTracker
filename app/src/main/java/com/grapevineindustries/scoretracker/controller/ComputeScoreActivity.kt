@@ -17,9 +17,9 @@ import kotlinx.android.synthetic.main.activity_compute_score.*
 import kotlinx.android.synthetic.main.dialog_popup_calc.*
 import kotlinx.android.synthetic.main.dialog_popup_calc.view.*
 import kotlinx.android.synthetic.main.add_player_list_item.view.*
-import kotlinx.android.synthetic.main.compute_score_list_item.*
-import kotlinx.android.synthetic.main.compute_score_list_item.view.*
-import kotlinx.android.synthetic.main.compute_score_list_item.view.tv_score
+import kotlinx.android.synthetic.main.player_score_list_item.*
+import kotlinx.android.synthetic.main.player_score_list_item.view.*
+import kotlinx.android.synthetic.main.player_score_list_item.view.tv_score
 
 class ComputeScoreActivity : AppCompatActivity() {
 
