@@ -13,7 +13,7 @@
         android:layout_marginTop="16dp"
         android:text="0"
         android:textAlignment="textEnd"
-        android:textSize="36sp"
+        android:textSize="45sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="@+id/btn_5"
         app:layout_constraintTop_toTopOf="parent" />
@@ -24,6 +24,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
         android:text="3"
+        android:textSize="@dimen/calcTextSize"
         app:layout_constraintEnd_toStartOf="@+id/btn_4"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintHorizontal_chainStyle="packed"
@@ -35,6 +36,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="4"
+        android:textSize="@dimen/calcTextSize"
         app:layout_constraintBottom_toBottomOf="@+id/btn_3"
         app:layout_constraintEnd_toStartOf="@+id/btn_5"
         app:layout_constraintHorizontal_bias="0.5"
@@ -46,6 +48,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="5"
+        android:textSize="@dimen/calcTextSize"
         app:layout_constraintBottom_toBottomOf="@+id/btn_4"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
@@ -57,6 +60,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="6"
+        android:textSize="@dimen/calcTextSize"
         app:layout_constraintEnd_toStartOf="@+id/btn_7"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintHorizontal_chainStyle="packed"
@@ -68,6 +72,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="7"
+        android:textSize="@dimen/calcTextSize"
         app:layout_constraintBottom_toBottomOf="@+id/btn_6"
         app:layout_constraintEnd_toStartOf="@+id/btn_8"
         app:layout_constraintHorizontal_bias="0.5"
@@ -79,6 +84,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="8"
+        android:textSize="@dimen/calcTextSize"
         app:layout_constraintBottom_toBottomOf="@+id/btn_7"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
@@ -90,6 +96,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="9"
+        android:textSize="@dimen/calcTextSize"
         app:layout_constraintStart_toStartOf="@+id/btn_6"
         app:layout_constraintTop_toBottomOf="@+id/btn_6" />
 
@@ -98,6 +105,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="J"
+        android:textSize="@dimen/calcTextSize"
         app:layout_constraintEnd_toStartOf="@+id/btn_q"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintHorizontal_chainStyle="packed"
@@ -109,6 +117,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Q"
+        android:textSize="@dimen/calcTextSize"
         app:layout_constraintBottom_toBottomOf="@+id/btn_j"
         app:layout_constraintEnd_toStartOf="@+id/btn_k"
         app:layout_constraintHorizontal_bias="0.5"
@@ -120,6 +129,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="K"
+        android:textSize="@dimen/calcTextSize"
         app:layout_constraintBottom_toBottomOf="@+id/btn_q"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
@@ -131,6 +141,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="10"
+        android:textSize="@dimen/calcTextSize"
         app:layout_constraintStart_toEndOf="@+id/btn_9"
         app:layout_constraintTop_toBottomOf="@+id/btn_7" />
 
@@ -139,6 +150,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="20"
+        android:textSize="@dimen/calcTextSize"
         app:layout_constraintStart_toStartOf="@+id/btn_j"
         app:layout_constraintTop_toBottomOf="@+id/btn_j" />
 
@@ -147,6 +159,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="50"
+        android:textSize="@dimen/calcTextSize"
         app:layout_constraintStart_toEndOf="@+id/btn_20"
         app:layout_constraintTop_toBottomOf="@+id/btn_q" />
 
@@ -154,7 +167,7 @@
         android:id="@+id/btn_done"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:src="@drawable/ic_check_black_24dp"
+        android:src="@drawable/ic_check_black_30dp"
         app:layout_constraintBottom_toBottomOf="@+id/btn_50"
         app:layout_constraintEnd_toEndOf="@+id/btn_k"
         app:layout_constraintStart_toEndOf="@+id/btn_50"
