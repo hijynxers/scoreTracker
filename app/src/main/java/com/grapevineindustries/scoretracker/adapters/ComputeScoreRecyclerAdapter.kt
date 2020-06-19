@@ -10,7 +10,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.grapevineindustries.scoretracker.R
 import com.grapevineindustries.scoretracker.model.Player
 import kotlinx.android.synthetic.main.dialog_popup_calc.*
-import kotlinx.android.synthetic.main.player_score_list_item.view.btn_calcScore
+import kotlinx.android.synthetic.main.list_item_compute_score.view.btn_calcScore
 
 class ComputeScoreRecyclerAdapter(val context: Context, val players: ArrayList<Player>): RecyclerView.Adapter<ComputeScoreRecyclerAdapter.ComputeScoreHolder>() {
 
@@ -25,7 +25,7 @@ class ComputeScoreRecyclerAdapter(val context: Context, val players: ArrayList<P
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ComputeScoreHolder {
-        val view = LayoutInflater.from(context).inflate(R.layout.player_score_list_item, parent, false)
+        val view = LayoutInflater.from(context).inflate(R.layout.list_item_compute_score, parent, false)
         view.btn_calcScore.setOnClickListener{
             popupCalc(view)
         }

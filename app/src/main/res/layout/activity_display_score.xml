@@ -4,30 +4,46 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".controller.ComputeScoreActivity"
-    android:id="@+id/container1">
+    tools:context=".controller.ComputeScoreActivity">
 
     <TextView
-        android:id="@+id/tv_wildCard"
+        android:id="@+id/displayScore_wildCardIs"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="3's are wild"
-        android:textSize="40sp"
+        android:layout_marginTop="16dp"
+        android:text="Wild card is..."
+        android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rv_computeScore"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        app:layout_constraintBottom_toTopOf="@+id/btn_computeScore"
+    <TextView
+        android:id="@+id/displayScore_wildCard"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="15dp"
+        android:text="3"
+        android:textAlignment="center"
+        android:textSize="40sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_wildCard" />
+        app:layout_constraintTop_toBottomOf="@+id/displayScore_wildCardIs" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/displayScore_recycler"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintBottom_toTopOf="@+id/displayScore_backBtn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/displayScore_wildCard" />
 
     <Button
-        android:id="@+id/btn_computeScore"
+        android:id="@+id/displayScore_backBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:onClick="onTallyScoreClicked"

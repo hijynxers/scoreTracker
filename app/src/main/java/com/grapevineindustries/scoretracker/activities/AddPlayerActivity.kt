@@ -11,7 +11,7 @@ import com.grapevineindustries.scoretracker.model.Player
 import com.grapevineindustries.scoretracker.utilities.EXTRA_NUM_PLAYERS
 import kotlinx.android.synthetic.main.activity_add_player.*
 import kotlinx.android.synthetic.main.activity_main.*
-import kotlinx.android.synthetic.main.add_player_list_item.view.*
+import kotlinx.android.synthetic.main.list_item_add_player.view.*
 
 class AddPlayerActivity : AppCompatActivity() {
 

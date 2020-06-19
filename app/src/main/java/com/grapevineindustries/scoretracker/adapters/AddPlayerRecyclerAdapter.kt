@@ -12,7 +12,7 @@ class AddPlayerRecyclerAdapter(val context: Context, val players: String): Recyc
     inner class AddPlayerHolder(itemView: View): RecyclerView.ViewHolder(itemView)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): AddPlayerHolder {
-        val view = LayoutInflater.from(context).inflate(R.layout.add_player_list_item, parent, false)
+        val view = LayoutInflater.from(context).inflate(R.layout.list_item_add_player, parent, false)
         return AddPlayerHolder(view)
     }
 
