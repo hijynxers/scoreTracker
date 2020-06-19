@@ -1,29 +1,22 @@
 package com.grapevineindustries.scoretracker.controller
 
-import android.annotation.SuppressLint
-import android.app.Dialog
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.widget.Toast
+import androidx.core.view.iterator
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.grapevineindustries.scoretracker.R
 import com.grapevineindustries.scoretracker.adapters.ComputeScoreRecyclerAdapter
 import com.grapevineindustries.scoretracker.model.Player
 import com.grapevineindustries.scoretracker.utilities.EXTRA_NUM_PLAYERS
-import kotlinx.android.synthetic.main.activity_add_player.*
 import kotlinx.android.synthetic.main.activity_compute_score.*
-import kotlinx.android.synthetic.main.dialog_popup_calc.*
-import kotlinx.android.synthetic.main.dialog_popup_calc.view.*
-import kotlinx.android.synthetic.main.add_player_list_item.view.*
-import kotlinx.android.synthetic.main.player_score_list_item.*
 import kotlinx.android.synthetic.main.player_score_list_item.view.*
-import kotlinx.android.synthetic.main.player_score_list_item.view.tv_score
 
 class ComputeScoreActivity : AppCompatActivity() {
 
-    var wildcard = 2  // needs to start at 2 because will increment before displaying
+    var wildcard = 3  // needs to start at 2 because will increment before displaying
     lateinit var playerList: ArrayList<Player>
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -37,16 +30,14 @@ class ComputeScoreActivity : AppCompatActivity() {
 
         val layoutManager = LinearLayoutManager(this)
         rv_computeScore.layoutManager = layoutManager
-        updateWildcard()
     }
 
     fun onTallyScoreClicked(view: View) {
         val idx = Integer.valueOf(playerList.count()) - 1
-        Log.d("here__", idx.toString())
+
         for (num in 0..idx) {
             val slot = rv_computeScore.getChildAt(num)
 
-            Log.d("here__", num.toString())
             val scoreToAdd = Integer.valueOf(slot.btn_calcScore.text.toString())
             println(playerList[num])
             playerList[num].score += scoreToAdd
@@ -58,7 +49,8 @@ class ComputeScoreActivity : AppCompatActivity() {
         updateWildcard()
 
         if (wildcard == 14) {
-            tv_wildCard.text = "Game over"
+            tv_wildCard.text = "Game Over"
+            btn_computeScore.isEnabled = false
             val toast = Toast.makeText(this, "Game is over", Toast.LENGTH_SHORT)
             toast.show()
         }
