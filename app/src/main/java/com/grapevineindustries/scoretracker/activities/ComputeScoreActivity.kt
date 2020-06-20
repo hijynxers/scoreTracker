@@ -68,6 +68,6 @@ class ComputeScoreActivity : AppCompatActivity() {
 
     private fun updateWildcard()
     {
-        tv_wildCard.text = "${convertWildcard()}'s are wild"
+        tv_wildCard.text = "${convertWildcard()}"
     }
 }
