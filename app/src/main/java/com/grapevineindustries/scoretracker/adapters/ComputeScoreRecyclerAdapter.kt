@@ -37,7 +37,6 @@ class ComputeScoreRecyclerAdapter(val context: Context, val players: ArrayList<P
     }
 
     override fun onBindViewHolder(holder: ComputeScoreHolder, position: Int) {
-        println("we got here")
         holder.bindComputeScore(players[position], context)
     }
 

@@ -8,9 +8,8 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.grapevineindustries.scoretracker.R
 import com.grapevineindustries.scoretracker.adapters.AddPlayerRecyclerAdapter
 import com.grapevineindustries.scoretracker.model.Player
-import com.grapevineindustries.scoretracker.utilities.EXTRA_NUM_PLAYERS
+import com.grapevineindustries.scoretracker.utilities.ARG_NUM_PLAYERS
 import kotlinx.android.synthetic.main.activity_add_player.*
-import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.list_item_add_player.view.*
 
 class AddPlayerActivity : AppCompatActivity() {
@@ -22,7 +21,7 @@ class AddPlayerActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_add_player)
 
-        numPlayers = intent.getStringExtra(EXTRA_NUM_PLAYERS)
+        numPlayers = intent.getStringExtra(ARG_NUM_PLAYERS)
         adapter = AddPlayerRecyclerAdapter(this, numPlayers)
 
         rv_addPlayer.adapter = adapter
@@ -43,7 +42,7 @@ class AddPlayerActivity : AppCompatActivity() {
         println(playerList)
 
         val addPlayerIntent = Intent(this, ComputeScoreActivity::class.java)
-        addPlayerIntent.putParcelableArrayListExtra(EXTRA_NUM_PLAYERS, playerList)
+        addPlayerIntent.putParcelableArrayListExtra(ARG_NUM_PLAYERS, playerList)
         startActivity(addPlayerIntent)
     }
 

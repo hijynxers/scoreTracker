@@ -5,7 +5,7 @@ import android.os.Bundle
 import com.grapevineindustries.scoretracker.DisplayPlayersFragment
 import com.grapevineindustries.scoretracker.R
 import com.grapevineindustries.scoretracker.model.Player
-import com.grapevineindustries.scoretracker.utilities.EXTRA_NUM_PLAYERS
+import com.grapevineindustries.scoretracker.utilities.ARG_NUM_PLAYERS
 
 class ComputeScoreActivity : AppCompatActivity() {
 
@@ -16,11 +16,11 @@ class ComputeScoreActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_blank)
 
-        playerList = intent.getParcelableArrayListExtra(EXTRA_NUM_PLAYERS)
+        playerList = intent.getParcelableArrayListExtra(ARG_NUM_PLAYERS)
 
         if (savedInstanceState == null) {
             supportFragmentManager.beginTransaction()
-                .replace(R.id.container, DisplayPlayersFragment.newInstance(playerList))
+                .add(R.id.container, DisplayPlayersFragment.newInstance(playerList, "3"))
                 .commitNow()
         }
 //        val adapter = ComputeScoreRecyclerAdapter(this, playerList)

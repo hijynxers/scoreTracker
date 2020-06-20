@@ -4,7 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.grapevineindustries.scoretracker.R
-import com.grapevineindustries.scoretracker.utilities.EXTRA_NUM_PLAYERS
+import com.grapevineindustries.scoretracker.utilities.ARG_NUM_PLAYERS
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -27,7 +27,7 @@ class MainActivity : AppCompatActivity() {
 
         btn_start.setOnClickListener {
             val productIntent = Intent(this, AddPlayerActivity::class.java)
-            productIntent.putExtra(EXTRA_NUM_PLAYERS, tv_numPlayers.text.toString())
+            productIntent.putExtra(ARG_NUM_PLAYERS, tv_numPlayers.text.toString())
             startActivity(productIntent)
         }
     }

@@ -4,7 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".controller.ComputeScoreActivity">
+    tools:context=".controller.ComputeScoreActivity"
+    android:id="@+id/container_display_score"
+    android:background="@color/colorPrimary">
 
     <TextView
         android:id="@+id/displayScore_wildCardIs"
@@ -36,18 +38,17 @@
         android:layout_height="0dp"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
-        app:layout_constraintBottom_toTopOf="@+id/displayScore_backBtn"
+        app:layout_constraintBottom_toTopOf="@+id/displayScore_EnterScore"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/displayScore_wildCard" />
 
     <Button
-        android:id="@+id/displayScore_backBtn"
+        android:id="@+id/displayScore_EnterScore"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:onClick="onTallyScoreClicked"
-        android:text="Tally Scores"
+        android:text="Enter Scores"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
