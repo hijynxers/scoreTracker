@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".controller.ComputeScoreActivity"
+    tools:context=".activities.ComputeScoreActivity"
     android:id="@+id/container_display_score"
     android:background="@color/colorPrimary">
 

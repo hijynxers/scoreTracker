@@ -15,9 +15,13 @@ class DisplayPlayersFragment : Fragment() {
 
     private lateinit var playerList: ArrayList<Player>
     private var wildcard: String = "-1"
+    private lateinit var comm: Communicator
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+      //  wildcard = arguments?.getString(ARG_WILDCARD).toString()
+      //  playerList = arguments?.getParcelableArrayList<Player>(ARG_PLAYER_LIST) as ArrayList<Player>
 
         arguments?.let {
             playerList = it.getParcelableArrayList<Player>(ARG_PLAYER_LIST) as ArrayList<Player>
@@ -31,6 +35,7 @@ class DisplayPlayersFragment : Fragment() {
     ): View? {
         val view = inflater.inflate(R.layout.activity_display_score, container, false)
 
+
         val layoutManager = LinearLayoutManager(context)
         val adapter = context?.let { DisplayPlayersRecyclerAdapter(it, playerList) }
 
@@ -39,19 +44,9 @@ class DisplayPlayersFragment : Fragment() {
 
         view.displayScore_wildCard.text = wildcard
 
+        comm = activity as Communicator
         view.displayScore_EnterScore.setOnClickListener {
-            // if wild card is 3 start new fragment
-            if (wildcard == "3")
-            {
-                childFragmentManager.beginTransaction()
-                    .remove(this)
-                    .replace(R.id.container_display_score, EnterScoresFragment.newInstance(playerList))
-                    .commit()
-            }
-            else
-            {
-                activity?.supportFragmentManager?.popBackStack()
-            }
+            comm.startComputeFrag(wildcard, playerList)
         }
 
         return view

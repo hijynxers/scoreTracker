@@ -4,35 +4,52 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".controller.ComputeScoreActivity"
+    tools:context=".activities.ComputeScoreActivity"
     android:id="@+id/container_compute_score"
     android:background="@color/colorPrimary" >
 
     <TextView
-        android:id="@+id/tv_wildCard"
+        android:id="@+id/computeScore_tv_wildCardIs"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="3's are wild"
-        android:textSize="40sp"
+        android:layout_marginTop="24dp"
+        android:text="Wild card is..."
+        android:textSize="25sp"
+        android:textColor="@color/colorAccent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/computeScore_tv_wildCard"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="3"
+        android:padding="20dp"
+        android:textColor="@color/colorAccent"
+        android:textSize="50sp"
+        android:textAlignment="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/computeScore_tv_wildCardIs" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/computeScore_recycler"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        app:layout_constraintBottom_toTopOf="@+id/btn_computeScore"
+        app:layout_constraintBottom_toTopOf="@+id/computeScore_btn_tallyScore"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_wildCard" />
+        app:layout_constraintTop_toBottomOf="@+id/computeScore_tv_wildCard" />
 
     <Button
-        android:id="@+id/btn_computeScore"
+        android:id="@+id/computeScore_btn_tallyScore"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:onClick="onTallyScoreClicked"
         android:text="Tally Scores"
+        android:backgroundTint="@color/colorPrimaryDark"
+        android:textColor="@color/colorAccent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
