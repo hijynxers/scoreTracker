@@ -20,13 +20,13 @@ class EnterScoresFragment : Fragment() {
 
     private lateinit var playerList: ArrayList<Player>
     private lateinit var comm: Communicator
-    private var wildcard: String = "-1"
+    private var wildcard: Int = -1
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
             playerList = it.getParcelableArrayList<Player>(ARG_PLAYER_LIST) as ArrayList<Player>
-            wildcard = it.getString(ARG_WILDCARD).toString()
+            wildcard = it.getInt(ARG_WILDCARD)
         }
     }
 
@@ -42,13 +42,12 @@ class EnterScoresFragment : Fragment() {
         view.computeScore_recycler.adapter = adapter
         view.computeScore_recycler.layoutManager = layoutManager
 
-        view.computeScore_tv_wildCard.text = wildcard
+        view.computeScore_tv_wildCard.text = updateWildcard(wildcard)
 
         comm = activity as Communicator
         view.computeScore_btn_tallyScore.setOnClickListener {
-            val intCard: Int = wildcard.toInt() + 1
-            val updatedCard: String = updateWildcard(intCard)
-            comm.startDisplayFrag(updatedCard, playerList)
+            val intCard: Int = wildcard + 1
+            comm.startDisplayFrag(intCard, playerList)
         }
 
         return view
@@ -62,14 +61,15 @@ class EnterScoresFragment : Fragment() {
             else -> wildcard.toString()
         }
     }
+
     companion object {
 
         @JvmStatic
-        fun newInstance(players: ArrayList<Player>, wildcard: String) =
+        fun newInstance(players: ArrayList<Player>, wildcard: Int) =
             EnterScoresFragment().apply {
                 arguments = Bundle().apply {
                     putParcelableArrayList(ARG_PLAYER_LIST, players)
-                    putString(ARG_WILDCARD, wildcard)
+                    putInt(ARG_WILDCARD, wildcard)
                 }
             }
     }

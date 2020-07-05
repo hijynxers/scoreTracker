@@ -7,7 +7,6 @@ import com.grapevineindustries.scoretracker.EnterScoresFragment
 import com.grapevineindustries.scoretracker.R
 import com.grapevineindustries.scoretracker.model.Player
 import com.grapevineindustries.scoretracker.utilities.*
-import kotlinx.android.synthetic.main.fragment_compute_score.*
 
 class ComputeScoreActivity : AppCompatActivity(), Communicator {
 
@@ -21,18 +20,18 @@ class ComputeScoreActivity : AppCompatActivity(), Communicator {
 
         if (savedInstanceState == null) {
             supportFragmentManager.beginTransaction()
-                .add(R.id.container, DisplayPlayersFragment.newInstance(playerList, "3"))
+                .add(R.id.container, DisplayPlayersFragment.newInstance(playerList, 3))
                 .commitNow()
         }
     }
 
-    override fun startDisplayFrag(wildcard: String, players: ArrayList<Player>) {
+    override fun startDisplayFrag(wildcard: Int, players: ArrayList<Player>) {
         supportFragmentManager.beginTransaction()
             .replace(R.id.container, DisplayPlayersFragment.newInstance(players, wildcard))
             .commitNow()
     }
 
-    override fun startComputeFrag(wildcard: String, players: ArrayList<Player>) {
+    override fun startComputeFrag(wildcard: Int, players: ArrayList<Player>) {
         supportFragmentManager.beginTransaction()
             .replace(R.id.container, EnterScoresFragment.newInstance(players, wildcard))
             .commitNow()

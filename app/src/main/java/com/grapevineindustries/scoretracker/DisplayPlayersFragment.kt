@@ -10,22 +10,20 @@ import com.grapevineindustries.scoretracker.adapters.DisplayPlayersRecyclerAdapt
 import com.grapevineindustries.scoretracker.model.Player
 import com.grapevineindustries.scoretracker.utilities.*
 import kotlinx.android.synthetic.main.activity_display_score.view.*
+import kotlinx.android.synthetic.main.fragment_compute_score.view.*
 
 class DisplayPlayersFragment : Fragment() {
 
     private lateinit var playerList: ArrayList<Player>
-    private var wildcard: String = "-1"
+    private var wildcard: Int = -1
     private lateinit var comm: Communicator
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-      //  wildcard = arguments?.getString(ARG_WILDCARD).toString()
-      //  playerList = arguments?.getParcelableArrayList<Player>(ARG_PLAYER_LIST) as ArrayList<Player>
-
         arguments?.let {
             playerList = it.getParcelableArrayList<Player>(ARG_PLAYER_LIST) as ArrayList<Player>
-            wildcard = it.getString(ARG_WILDCARD).toString()
+            wildcard = it.getInt(ARG_WILDCARD)
         }
     }
 
@@ -42,7 +40,7 @@ class DisplayPlayersFragment : Fragment() {
         view.displayScore_recycler.adapter = adapter
         view.displayScore_recycler.layoutManager = layoutManager
 
-        view.displayScore_wildCard.text = wildcard
+        view.displayScore_wildCard.text = updateWildcard(wildcard)
 
         comm = activity as Communicator
         view.displayScore_EnterScore.setOnClickListener {
@@ -52,14 +50,23 @@ class DisplayPlayersFragment : Fragment() {
         return view
     }
 
+    private fun updateWildcard(wildcard: Int): String {
+        return when(wildcard) {
+            11 -> "J"
+            12 -> "Q"
+            13 -> "K"
+            else -> wildcard.toString()
+        }
+    }
+
     companion object {
 
         @JvmStatic
-        fun newInstance(players: ArrayList<Player>, wildcard: String) =
+        fun newInstance(players: ArrayList<Player>, wildcard: Int) =
             DisplayPlayersFragment().apply {
                 arguments = Bundle().apply {
                     putParcelableArrayList(ARG_PLAYER_LIST, players)
-                    putString(ARG_WILDCARD, wildcard)
+                    putInt(ARG_WILDCARD, wildcard)
                 }
             }
     }
