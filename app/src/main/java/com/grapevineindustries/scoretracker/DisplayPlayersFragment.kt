@@ -44,6 +44,7 @@ class DisplayPlayersFragment : Fragment() {
         comm = activity as Communicator
         view.displayScore_EnterScore.setOnClickListener {
             comm.startComputeFrag(wildcard, playerList)
+            GLOBAL_DEALER_IDX++
         }
         if (wildcard == 14) {
             view.displayScore_EnterScore.isEnabled = false;
