@@ -33,7 +33,6 @@ class DisplayPlayersFragment : Fragment() {
     ): View? {
         val view = inflater.inflate(R.layout.activity_display_score, container, false)
 
-
         val layoutManager = LinearLayoutManager(context)
         val adapter = context?.let { DisplayPlayersRecyclerAdapter(it, playerList) }
 
@@ -45,6 +44,11 @@ class DisplayPlayersFragment : Fragment() {
         comm = activity as Communicator
         view.displayScore_EnterScore.setOnClickListener {
             comm.startComputeFrag(wildcard, playerList)
+        }
+        if (wildcard == 14) {
+            view.displayScore_EnterScore.isEnabled = false;
+            view.displayScore_wildCard.text = "Game Over"
+            view.displayScore_wildCardIs.text = ""
         }
 
         return view

@@ -12,7 +12,7 @@
         <activity android:name=".deleteActivity"></activity>
         <activity android:name=".activities.ComputeScoreActivity" />
         <activity android:name=".controller.AddPlayerActivity" />
-        <activity android:name=".controller.MainActivity">
+        <activity android:name=".activities.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
