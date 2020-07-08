@@ -17,13 +17,16 @@ class MainActivity : AppCompatActivity() {
         btn_plus.setOnClickListener {
             var numPlayersInt = Integer.valueOf(tv_numPlayers.text.toString())
             numPlayersInt++
+            if (numPlayersInt > 6) {
+                numPlayersInt = 6
+            }
             tv_numPlayers.text = numPlayersInt.toString()
         }
 
         btn_minus.setOnClickListener {
             var numPlayersInt = Integer.valueOf(tv_numPlayers.text.toString())
             numPlayersInt--
-            if (numPlayersInt > 2) {
+            if (numPlayersInt < 2) {
                 numPlayersInt = 2
             }
             tv_numPlayers.text = numPlayersInt.toString()

@@ -47,7 +47,7 @@ class AddPlayerActivity : AppCompatActivity() {
         startActivity(addPlayerIntent)
     }
 
-    fun createPlayers(names: List<String>, num: Int): ArrayList<Player> {
+    private fun createPlayers(names: List<String>, num: Int): ArrayList<Player> {
         val playerList = arrayListOf<Player>()
         for (i in 0..num) {
             playerList.add(Player(names[i]))

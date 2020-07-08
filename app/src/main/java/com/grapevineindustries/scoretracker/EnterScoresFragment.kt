@@ -11,7 +11,9 @@ import com.grapevineindustries.scoretracker.model.Player
 import com.grapevineindustries.scoretracker.utilities.ARG_PLAYER_LIST
 import com.grapevineindustries.scoretracker.utilities.ARG_WILDCARD
 import com.grapevineindustries.scoretracker.utilities.Communicator
+import kotlinx.android.synthetic.main.fragment_compute_score.*
 import kotlinx.android.synthetic.main.fragment_compute_score.view.*
+import kotlinx.android.synthetic.main.list_item_compute_score.view.*
 
 /**
  * A fragment representing a list of Items.
@@ -47,6 +49,17 @@ class EnterScoresFragment : Fragment() {
         comm = activity as Communicator
         view.computeScore_btn_tallyScore.setOnClickListener {
             val intCard: Int = wildcard + 1
+
+            val idx = Integer.valueOf(playerList.count()) - 1
+            for (num in 0..idx) {
+                // grab the slot we are at
+                val slot = computeScore_recycler.getChildAt(num)
+                // get the number to add to the score
+                val scoreToAdd = Integer.valueOf(slot.btn_calcScore.text.toString())
+                // add the score to the player
+                playerList[num].score += scoreToAdd
+            }
+
             comm.startDisplayFrag(intCard, playerList)
         }
 
