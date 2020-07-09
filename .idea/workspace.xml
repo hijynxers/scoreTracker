@@ -129,6 +129,9 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/app/src/main/res/layout" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.17" />
+    <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
   </component>
   <component name="RecentsManager">
@@ -235,6 +238,10 @@
     </ignored-roots>
   </component>
   <component name="WindowStateProjectService">
+    <state x="480" y="275" width="950" height="537" key="#PSD" timestamp="1594259789477">
+      <screen x="0" y="27" width="1920" height="1053" />
+    </state>
+    <state x="480" y="275" width="950" height="537" key="#PSD/1920.0.1920.1080/0.27.1920.1053@0.27.1920.1053" timestamp="1594259789477" />
     <state x="634" y="185" width="642" height="716" key="#app" timestamp="1592598356260">
       <screen x="0" y="27" width="1920" height="1053" />
     </state>
