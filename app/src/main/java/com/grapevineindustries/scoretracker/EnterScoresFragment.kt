@@ -53,7 +53,7 @@ class EnterScoresFragment : Fragment() {
             wildcard++
             GLOBAL_DEALER_IDX++
 
-            view.computeScore_tv_wildCard.text = wildcard.toString()
+            view.computeScore_tv_wildCard.text = updateWildcard(wildcard)
 
             val idx = Integer.valueOf(playerList.count()) - 1
             for (position in 0..idx) {
