@@ -5,12 +5,14 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.grapevineindustries.scoretracker.adapters.ComputeScoreRecyclerAdapter
 import com.grapevineindustries.scoretracker.model.Player
 import com.grapevineindustries.scoretracker.utilities.ARG_PLAYER_LIST
 import com.grapevineindustries.scoretracker.utilities.ARG_WILDCARD
 import com.grapevineindustries.scoretracker.utilities.Communicator
+import com.grapevineindustries.scoretracker.utilities.GLOBAL_DEALER_IDX
 import kotlinx.android.synthetic.main.fragment_compute_score.*
 import kotlinx.android.synthetic.main.fragment_compute_score.view.*
 import kotlinx.android.synthetic.main.list_item_compute_score.view.*
@@ -48,19 +50,39 @@ class EnterScoresFragment : Fragment() {
 
         comm = activity as Communicator
         view.computeScore_btn_tallyScore.setOnClickListener {
-            val intCard: Int = wildcard + 1
+            wildcard++
+            GLOBAL_DEALER_IDX++
+
+            view.computeScore_tv_wildCard.text = wildcard.toString()
 
             val idx = Integer.valueOf(playerList.count()) - 1
-            for (num in 0..idx) {
+            for (position in 0..idx) {
                 // grab the slot we are at
-                val slot = computeScore_recycler.getChildAt(num)
+                val slot = computeScore_recycler.getChildAt(position)
                 // get the number to add to the score
-                val scoreToAdd = Integer.valueOf(slot.btn_calcScore.text.toString())
+                val scoreToAdd = Integer.valueOf(slot.computeScore_calcScoreBtn.text.toString())
                 // add the score to the player
-                playerList[num].score += scoreToAdd
+                playerList[position].score += scoreToAdd
+
+                slot.computeScore_score.text = playerList[position].score.toString()
+                slot.computeScore_calcScoreBtn.text = 0.toString()
+
+                if (position == (GLOBAL_DEALER_IDX % playerList.size)) {
+                    if (context != null) {
+                        slot.setBackgroundColor(ContextCompat.getColor(context!!, R.color.colorDealerTab))
+                    }
+                }
+                else {
+                    if (context != null) {
+                        slot.setBackgroundColor(ContextCompat.getColor(context!!, R.color.colorPrimary))
+                    }
+                }
             }
 
-            comm.startDisplayFrag(intCard, playerList)
+
+            if (wildcard == 14) {
+                comm.startDisplayFrag(playerList)
+            }
         }
 
         return view

@@ -9,13 +9,13 @@ import android.view.ViewGroup
 import com.grapevineindustries.scoretracker.adapters.DisplayPlayersRecyclerAdapter
 import com.grapevineindustries.scoretracker.model.Player
 import com.grapevineindustries.scoretracker.utilities.*
-import kotlinx.android.synthetic.main.activity_display_score.view.*
-import kotlinx.android.synthetic.main.fragment_compute_score.view.*
+import kotlinx.android.synthetic.main.fragment_display_score.view.*
+import java.util.*
+import kotlin.collections.ArrayList
 
 class DisplayPlayersFragment : Fragment() {
 
     private lateinit var playerList: ArrayList<Player>
-    private var wildcard: Int = -1
     private lateinit var comm: Communicator
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -23,7 +23,6 @@ class DisplayPlayersFragment : Fragment() {
 
         arguments?.let {
             playerList = it.getParcelableArrayList<Player>(ARG_PLAYER_LIST) as ArrayList<Player>
-            wildcard = it.getInt(ARG_WILDCARD)
         }
     }
 
@@ -31,47 +30,33 @@ class DisplayPlayersFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val view = inflater.inflate(R.layout.activity_display_score, container, false)
+        val view = inflater.inflate(R.layout.fragment_display_score, container, false)
 
         val layoutManager = LinearLayoutManager(context)
-        val adapter = context?.let { DisplayPlayersRecyclerAdapter(it, playerList) }
+
+        var sortedList = playerList.sortedWith(compareBy { it.score })
+
+        val adapter = context?.let { DisplayPlayersRecyclerAdapter(it, ArrayList(sortedList)) }
 
         view.displayScore_recycler.adapter = adapter
         view.displayScore_recycler.layoutManager = layoutManager
 
-        view.displayScore_wildCard.text = updateWildcard(wildcard)
-
         comm = activity as Communicator
-        view.displayScore_EnterScore.setOnClickListener {
-            comm.startComputeFrag(wildcard, playerList)
-            GLOBAL_DEALER_IDX++
-        }
-        if (wildcard == 14) {
-            view.displayScore_EnterScore.isEnabled = false;
-            view.displayScore_wildCard.text = "Game Over"
-            view.displayScore_wildCardIs.text = ""
+
+        view.displayScore_replayBtn.setOnClickListener {
+            activity!!.finish()
         }
 
         return view
     }
 
-    private fun updateWildcard(wildcard: Int): String {
-        return when(wildcard) {
-            11 -> "J"
-            12 -> "Q"
-            13 -> "K"
-            else -> wildcard.toString()
-        }
-    }
-
     companion object {
 
         @JvmStatic
-        fun newInstance(players: ArrayList<Player>, wildcard: Int) =
+        fun newInstance(players: ArrayList<Player>) =
             DisplayPlayersFragment().apply {
                 arguments = Bundle().apply {
                     putParcelableArrayList(ARG_PLAYER_LIST, players)
-                    putInt(ARG_WILDCARD, wildcard)
                 }
             }
     }

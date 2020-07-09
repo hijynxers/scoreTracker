@@ -19,9 +19,7 @@ class DisplayPlayersRecyclerAdapter(val context: Context, val players: ArrayList
         val score: TextView? = itemView.findViewById(R.id.display_playerScore)
 
         fun bindComputeScore(player: Player, context: Context, position: Int) {
-            if (position == (GLOBAL_DEALER_IDX % players.size)) {
-                this.itemView.setBackgroundColor(ContextCompat.getColor(context, R.color.colorDealerTab))
-            }
+            this.itemView.setBackgroundColor(ContextCompat.getColor(context, R.color.colorPrimary))
 
             name?.text = player.name
             score?.text = player.score.toString()

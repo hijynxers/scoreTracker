@@ -20,14 +20,14 @@ class ComputeScoreActivity : AppCompatActivity(), Communicator {
 
         if (savedInstanceState == null) {
             supportFragmentManager.beginTransaction()
-                .add(R.id.container, DisplayPlayersFragment.newInstance(playerList, 3))
+                .add(R.id.container, EnterScoresFragment.newInstance(playerList, 3))
                 .commitNow()
         }
     }
 
-    override fun startDisplayFrag(wildcard: Int, players: ArrayList<Player>) {
+    override fun startDisplayFrag(players: ArrayList<Player>) {
         supportFragmentManager.beginTransaction()
-            .replace(R.id.container, DisplayPlayersFragment.newInstance(players, wildcard))
+            .replace(R.id.container, DisplayPlayersFragment.newInstance(players))
             .commitNow()
     }
 

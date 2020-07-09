@@ -6,19 +6,25 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.grapevineindustries.scoretracker.R
 import com.grapevineindustries.scoretracker.model.Player
+import com.grapevineindustries.scoretracker.utilities.GLOBAL_DEALER_IDX
 import kotlinx.android.synthetic.main.dialog_popup_calc.*
-import kotlinx.android.synthetic.main.list_item_compute_score.view.btn_calcScore
+import kotlinx.android.synthetic.main.list_item_compute_score.view.*
 
 class ComputeScoreRecyclerAdapter(val context: Context, val players: ArrayList<Player>): RecyclerView.Adapter<ComputeScoreRecyclerAdapter.ComputeScoreHolder>() {
 
     inner class ComputeScoreHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
-        val name: TextView? = itemView.findViewById(R.id.tv_name)
-        val score: TextView? = itemView.findViewById(R.id.tv_score)
+        val name: TextView? = itemView.findViewById(R.id.computeScore_name)
+        val score: TextView? = itemView.findViewById(R.id.computeScore_score)
 
-        fun bindComputeScore(player: Player, context: Context) {
+        fun bindComputeScore(player: Player, context: Context, position: Int) {
+            if (position == (GLOBAL_DEALER_IDX % players.size)) {
+                this.itemView.setBackgroundColor(ContextCompat.getColor(context, R.color.colorDealerTab))
+            }
+
             name?.text = player.name
             score?.text = player.score.toString()
         }
@@ -26,7 +32,7 @@ class ComputeScoreRecyclerAdapter(val context: Context, val players: ArrayList<P
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ComputeScoreHolder {
         val view = LayoutInflater.from(context).inflate(R.layout.list_item_compute_score, parent, false)
-        view.btn_calcScore.setOnClickListener{
+        view.computeScore_calcScoreBtn.setOnClickListener{
             popupCalc(view)
         }
         return ComputeScoreHolder(view)
@@ -37,7 +43,7 @@ class ComputeScoreRecyclerAdapter(val context: Context, val players: ArrayList<P
     }
 
     override fun onBindViewHolder(holder: ComputeScoreHolder, position: Int) {
-        holder.bindComputeScore(players[position], context)
+        holder.bindComputeScore(players[position], context, position)
     }
 
     private fun popupCalc(view: View) {
@@ -101,7 +107,7 @@ class ComputeScoreRecyclerAdapter(val context: Context, val players: ArrayList<P
             calcDialog.calcScore.text = (Integer.valueOf(calcDialog.calcScore.text.toString()) + 50).toString()
         }
         btnDone.setOnClickListener {
-            view.btn_calcScore.text = calcDialog.calcScore.text.toString()
+            view.computeScore_calcScoreBtn.text = calcDialog.calcScore.text.toString()
             calcDialog.dismiss()
         }
         calcDialog.show()
