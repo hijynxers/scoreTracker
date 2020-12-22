@@ -5,16 +5,40 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.databinding.DataBindingUtil
+import androidx.navigation.findNavController
 import com.grapevineindustries.scoretracker.R
+import com.grapevineindustries.scoretracker.databinding.FragmentTitleBinding
 
 class TitleFragment : Fragment() {
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
+    private var numPlayers = 2
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_title, container, false)
+        // to get FragmentTitleBinding to generate you need a "<layout>" tag around the xml file
+        val binding = DataBindingUtil.inflate<FragmentTitleBinding>(inflater, R.layout.fragment_title, container, false)
+
+        binding.tvNumPlayers.text = numPlayers.toString()
+
+
+        binding.btnStart.setOnClickListener { view : View ->
+            view.findNavController().navigate(TitleFragmentDirections.actionTitleFragmentToAddPlayersFragment(numPlayers))
+        }
+
+        binding.btnPlus.setOnClickListener { view : View ->
+            if(numPlayers != 6) {
+                numPlayers++
+                binding.tvNumPlayers.text = numPlayers.toString()
+            }
+        }
+
+        binding.btnMinus.setOnClickListener { view : View ->
+            if(numPlayers != 2) {
+                numPlayers--
+                binding.tvNumPlayers.text = numPlayers.toString()
+            }
+        }
+
+        return binding.root
     }
 }

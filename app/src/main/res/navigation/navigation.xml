@@ -17,6 +17,9 @@
         <action
             android:id="@+id/action_addPlayersFragment_to_gameFragment"
             app:destination="@id/gameFragment" />
+        <argument
+            android:name="numPlayers"
+            app:argType="integer" />
     </fragment>
     <fragment
         android:id="@+id/gameFragment"
@@ -26,6 +29,9 @@
         <action
             android:id="@+id/action_gameFragment_to_gameOverFragment"
             app:destination="@id/gameOverFragment" />
+        <argument
+            android:name="playerList"
+            app:argType="com.grapevineindustries.scoretracker.Players" />
     </fragment>
     <fragment
         android:id="@+id/titleFragment"
