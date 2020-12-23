@@ -37,9 +37,7 @@ class AddPlayersFragment : Fragment() {
 
 
         binding.btnStartGame.setOnClickListener { view : View ->
-            val idx = args.numPlayers - 1
-
-            for(num in 0..idx) {
+            for(num in 0 until args.numPlayers) {
                 val child = binding.addPlayerRecycler.getChildAt(num)
                 val et = child.findViewById<EditText>(R.id.editText)
                 val name = et.text.toString()

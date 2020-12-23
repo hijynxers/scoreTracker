@@ -5,11 +5,17 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
+import android.widget.TextView
+import android.widget.Toast
+import androidx.core.content.ContextCompat
 import androidx.databinding.DataBindingUtil
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.grapevineindustries.scoretracker.R
 import com.grapevineindustries.scoretracker.adapters.GameAdapter
 import com.grapevineindustries.scoretracker.databinding.FragmentGameBinding
+import com.grapevineindustries.scoretracker.utilities.GLOBAL_DEALER_IDX
 
 class GameFragment : Fragment() {
 
@@ -32,9 +38,35 @@ class GameFragment : Fragment() {
         binding.gameRecycler.layoutManager = manager
 
         binding.gameBtnTallyScore.setOnClickListener { view: View ->
-            
-        }
+            ++round
+            if(round == 14) {
+                // start new thing
+                view.findNavController().navigate(GameFragmentDirections.actionGameFragmentToGameOverFragment(playerList))
+            } else {
+                binding.gameTvWildCard.text = updateWildcard(round)
+                for (i in 0 until playerList.size) {
+                    val slot = binding.gameRecycler.getChildAt(i)
+                    val scoreToAdd = slot.findViewById<Button>(R.id.list_item_game_calcScoreBtn)
+                    playerList[i].score += scoreToAdd.text.toString().toInt()
+                    scoreToAdd.text = "0"
 
+                    // display the new score
+                    val score = slot.findViewById<TextView>(R.id.list_item_game_score)
+                    score.text = playerList[i].score.toString()
+
+                    if (i == (GLOBAL_DEALER_IDX % playerList.size)) {
+                        if (context != null) {
+                            slot.setBackgroundColor(ContextCompat.getColor(requireContext(), R.color.colorDealerTab))
+                        }
+                    }
+                    else {
+                        if (context != null) {
+                            slot.setBackgroundColor(ContextCompat.getColor(requireContext(), R.color.colorPrimary))
+                        }
+                    }
+                }
+            }
+        }
 
         return binding.root
     }
