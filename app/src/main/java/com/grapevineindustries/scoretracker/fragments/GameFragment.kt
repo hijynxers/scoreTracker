@@ -7,12 +7,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.grapevineindustries.scoretracker.CalcDialogFragment
-import com.grapevineindustries.scoretracker.Player
 import com.grapevineindustries.scoretracker.R
-import com.grapevineindustries.scoretracker.adapters.AddPlayerAdapter
 import com.grapevineindustries.scoretracker.adapters.GameAdapter
-import com.grapevineindustries.scoretracker.databinding.FragmentAddPlayersBinding
 import com.grapevineindustries.scoretracker.databinding.FragmentGameBinding
 
 class GameFragment : Fragment() {
@@ -21,7 +17,7 @@ class GameFragment : Fragment() {
         // Inflate the layout for this fragment
         val binding = DataBindingUtil.inflate<FragmentGameBinding>(inflater, R.layout.fragment_game, container, false)
         val args = GameFragmentArgs.fromBundle(requireArguments())
-        var playerList = args.playerList
+        val playerList = args.playerList
 
         var round = 3
 
@@ -36,24 +32,11 @@ class GameFragment : Fragment() {
         binding.gameRecycler.layoutManager = manager
 
         binding.gameBtnTallyScore.setOnClickListener { view: View ->
-
-
-            //binding.gameTvWildCard.text = updateWildcard(round++)
-            fire()
-
-
-            //if(round == 14) {
-
-            //}
+            
         }
 
 
         return binding.root
-    }
-
-    fun fire() {
-        val newFrag = CalcDialogFragment()
-        newFrag.show(childFragmentManager, "nathan")
     }
 
     private fun updateWildcard(wildcard: Int): String {

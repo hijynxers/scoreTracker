@@ -2,9 +2,15 @@ package com.grapevineindustries.scoretracker.adapters
 
 import android.app.Dialog
 import android.content.Context
+import android.content.DialogInterface
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
+import android.widget.ImageView
+import android.widget.TextView
+import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.recyclerview.widget.RecyclerView
 import com.grapevineindustries.scoretracker.Players
 import com.grapevineindustries.scoretracker.R
@@ -24,7 +30,6 @@ class GameAdapter(val players: Players): RecyclerView.Adapter<GameAdapter.ViewHo
 
     class ViewHolder (private val binding: ListItemGameBinding): RecyclerView.ViewHolder(binding.root) {
         fun bind() {
-
         }
 
         companion object {
@@ -33,85 +38,79 @@ class GameAdapter(val players: Players): RecyclerView.Adapter<GameAdapter.ViewHo
                 val binding = ListItemGameBinding.inflate(layoutInflater, parent, false)
 
                 binding.listItemGameCalcScoreBtn.setOnClickListener { view: View ->
-                    //popupCalc(view, parent.context)
+                    val builder = AlertDialog.Builder(parent.context)
+                    val inflater = layoutInflater
+                    val dialogLayout = inflater.inflate(R.layout.dialog_popup_calc, null)
+                    builder.setView(dialogLayout)
+
+                    val tvScore = dialogLayout.findViewById<TextView>(R.id.calcScore)
+
+                    val btn3 = dialogLayout.findViewById<Button>(R.id.btn_3)
+                    btn3.setOnClickListener { view: View ->
+                        tvScore.text = (tvScore.text.toString().toInt() + 3).toString()
+                    }
+                    val btn4 = dialogLayout.findViewById<Button>(R.id.btn_4)
+                    btn4.setOnClickListener { view: View ->
+                        tvScore.text = (tvScore.text.toString().toInt() + 4).toString()
+                    }
+                    val btn5 = dialogLayout.findViewById<Button>(R.id.btn_5)
+                    btn5.setOnClickListener { view: View ->
+                        tvScore.text = (tvScore.text.toString().toInt() + 5).toString()
+                    }
+                    val btn6 = dialogLayout.findViewById<Button>(R.id.btn_6)
+                    btn6.setOnClickListener { view: View ->
+                        tvScore.text = (tvScore.text.toString().toInt() + 6).toString()
+                    }
+                    val btn7 = dialogLayout.findViewById<Button>(R.id.btn_7)
+                    btn7.setOnClickListener { view: View ->
+                        tvScore.text = (tvScore.text.toString().toInt() + 7).toString()
+                    }
+                    val btn8 = dialogLayout.findViewById<Button>(R.id.btn_8)
+                    btn8.setOnClickListener { view: View ->
+                        tvScore.text = (tvScore.text.toString().toInt() + 8).toString()
+                    }
+                    val btn9 = dialogLayout.findViewById<Button>(R.id.btn_9)
+                    btn9.setOnClickListener { view: View ->
+                        tvScore.text = (tvScore.text.toString().toInt() + 9).toString()
+                    }
+                    val btn10 = dialogLayout.findViewById<Button>(R.id.btn_10)
+                    btn10.setOnClickListener { view: View ->
+                        tvScore.text = (tvScore.text.toString().toInt() + 10).toString()
+                    }
+                    val btnJ = dialogLayout.findViewById<Button>(R.id.btn_j)
+                    btnJ.setOnClickListener { view: View ->
+                        tvScore.text = (tvScore.text.toString().toInt() + 11).toString()
+                    }
+                    val btnQ = dialogLayout.findViewById<Button>(R.id.btn_q)
+                    btnQ.setOnClickListener { view: View ->
+                        tvScore.text = (tvScore.text.toString().toInt() + 12).toString()
+                    }
+                    val btnK = dialogLayout.findViewById<Button>(R.id.btn_k)
+                    btnK.setOnClickListener { view: View ->
+                        tvScore.text = (tvScore.text.toString().toInt() + 13).toString()
+                    }
+                    val btn20 = dialogLayout.findViewById<Button>(R.id.btn_20)
+                    btn20.setOnClickListener { view: View ->
+                        tvScore.text = (tvScore.text.toString().toInt() + 20).toString()
+                    }
+                    val btn50 = dialogLayout.findViewById<Button>(R.id.btn_50)
+                    btn50.setOnClickListener { view: View ->
+                        tvScore.text = (tvScore.text.toString().toInt() + 50).toString()
+                    }
+
+                    val returnScore = view.findViewById<Button>(R.id.list_item_game_calcScoreBtn)
+                    val positiveButtonClick = { dialog: DialogInterface, which: Int ->
+                        returnScore.text = tvScore.text.toString()
+                    }
+                    builder.setPositiveButton("OK", DialogInterface.OnClickListener(function = positiveButtonClick))
+                    builder.setNegativeButton(android.R.string.no, null)
+
+                    builder.show()
                 }
 
 
                 return ViewHolder(binding)
             }
-
-            fun popupCalc(view: View, context: Context) {
-
-//                val calcDialog = Dialog(context)
-//                calcDialog.
-//                calcDialog.setContentView(R.layout.dialog_popup_calc)
-//                calcDialog.setTitle("Add Score:")
-//
-//                val btn3 = calcDialog.btn_3
-//                val btn4 = calcDialog.btn_4
-//                val btn5 = calcDialog.btn_5
-//                val btn6 = calcDialog.btn_6
-//                val btn7 = calcDialog.btn_7
-//                val btn8 = calcDialog.btn_8
-//                val btn9 = calcDialog.btn_9
-//                val btn10 = calcDialog.btn_10
-//                val btnJ = calcDialog.btn_j
-//                val btnQ = calcDialog.btn_q
-//                val btnK = calcDialog.btn_k
-//                val btn20 = calcDialog.btn_20
-//                val btn50 = calcDialog.btn_50
-//                val btnDone = calcDialog.btn_done
-//
-//                btn3.setOnClickListener {
-//
-//                    calcDialog.calcScore.text = (Integer.valueOf(calcDialog.calcScore.text.toString()) + 3).toString()
-//                }
-//                btn4.setOnClickListener {
-//                    calcDialog.calcScore.text = (Integer.valueOf(calcDialog.calcScore.text.toString()) + 4).toString()
-//                }
-//                btn5.setOnClickListener {
-//                    calcDialog.calcScore.text = (Integer.valueOf(calcDialog.calcScore.text.toString()) + 5).toString()
-//                }
-//                btn6.setOnClickListener {
-//                    calcDialog.calcScore.text = (Integer.valueOf(calcDialog.calcScore.text.toString()) + 6).toString()
-//                }
-//                btn7.setOnClickListener {
-//                    calcDialog.calcScore.text = (Integer.valueOf(calcDialog.calcScore.text.toString()) + 7).toString()
-//                }
-//                btn8.setOnClickListener {
-//                    calcDialog.calcScore.text = (Integer.valueOf(calcDialog.calcScore.text.toString()) + 8).toString()
-//                }
-//                btn9.setOnClickListener {
-//                    calcDialog.calcScore.text = (Integer.valueOf(calcDialog.calcScore.text.toString()) + 9).toString()
-//                }
-//                btn10.setOnClickListener {
-//                    calcDialog.calcScore.text = (Integer.valueOf(calcDialog.calcScore.text.toString()) + 10).toString()
-//                }
-//                btnJ.setOnClickListener {
-//                    calcDialog.calcScore.text = (Integer.valueOf(calcDialog.calcScore.text.toString()) + 11).toString()
-//                }
-//                btnQ.setOnClickListener {
-//                    calcDialog.calcScore.text = (Integer.valueOf(calcDialog.calcScore.text.toString()) + 12).toString()
-//                }
-//                btnK.setOnClickListener {
-//                    calcDialog.calcScore.text = (Integer.valueOf(calcDialog.calcScore.text.toString()) + 13).toString()
-//                }
-//                btn20.setOnClickListener {
-//                    calcDialog.calcScore.text = (Integer.valueOf(calcDialog.calcScore.text.toString()) + 20).toString()
-//                }
-//                btn50.setOnClickListener {
-//                    calcDialog.calcScore.text = (Integer.valueOf(calcDialog.calcScore.text.toString()) + 50).toString()
-//                }
-//                btnDone.setOnClickListener {
-//                    view.computeScore_calcScoreBtn.text = calcDialog.calcScore.text.toString()
-//                    calcDialog.dismiss()
-//                }
-//                calcDialog.show()
-            }
         }
-
-
     }
-
-
 }

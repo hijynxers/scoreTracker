@@ -32,9 +32,6 @@
         <argument
             android:name="playerList"
             app:argType="com.grapevineindustries.scoretracker.Players" />
-        <action
-            android:id="@+id/action_gameFragment_to_calcDialogFragment2"
-            app:destination="@id/calcDialogFragment2" />
     </fragment>
     <fragment
         android:id="@+id/titleFragment"
@@ -44,14 +41,5 @@
         <action
             android:id="@+id/action_titleFragment_to_addPlayersFragment"
             app:destination="@id/addPlayersFragment" />
-    </fragment>
-    <fragment
-        android:id="@+id/calcDialogFragment2"
-        android:name="com.grapevineindustries.scoretracker.CalcDialogFragment"
-        android:label="fragment_calc_dialog"
-        tools:layout="@layout/fragment_calc_dialog" >
-        <action
-            android:id="@+id/action_calcDialogFragment_to_gameFragment"
-            app:destination="@id/gameFragment" />
     </fragment>
 </navigation>
