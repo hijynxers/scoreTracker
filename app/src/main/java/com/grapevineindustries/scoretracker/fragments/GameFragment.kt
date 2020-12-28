@@ -38,7 +38,9 @@ class GameFragment : Fragment() {
         binding.gameRecycler.layoutManager = manager
 
         binding.gameBtnTallyScore.setOnClickListener { view: View ->
+            ++GLOBAL_DEALER_IDX
             ++round
+
             if(round == 14) {
                 // start new thing
                 view.findNavController().navigate(GameFragmentDirections.actionGameFragmentToGameOverFragment(playerList))
@@ -56,12 +58,12 @@ class GameFragment : Fragment() {
 
                     if (i == (GLOBAL_DEALER_IDX % playerList.size)) {
                         if (context != null) {
-                            slot.setBackgroundColor(ContextCompat.getColor(requireContext(), R.color.colorDealerTab))
+                            slot.setBackgroundColor(ContextCompat.getColor(view.context, R.color.colorDealerTab))
                         }
                     }
                     else {
                         if (context != null) {
-                            slot.setBackgroundColor(ContextCompat.getColor(requireContext(), R.color.colorPrimary))
+                            slot.setBackgroundColor(ContextCompat.getColor(view.context, R.color.colorPrimary))
                         }
                     }
                 }

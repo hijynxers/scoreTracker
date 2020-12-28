@@ -32,7 +32,9 @@ class GameOverFragment : Fragment() {
         binding.gameOverRecycler.adapter = adapter
         
         binding.gameOverReplayBtn.setOnClickListener { view : View ->
-            args.playerList.clear()
+            for (player in args.playerList) {
+                player.score = 0
+            }
             view.findNavController().navigate(GameOverFragmentDirections.actionGameOverFragmentToAddPlayersFragment(numPlayers))
         }
 

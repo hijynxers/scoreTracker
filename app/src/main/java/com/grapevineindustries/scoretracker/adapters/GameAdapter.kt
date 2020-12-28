@@ -1,5 +1,6 @@
 package com.grapevineindustries.scoretracker.adapters
 
+import android.annotation.SuppressLint
 import android.content.DialogInterface
 import android.view.LayoutInflater
 import android.view.View
@@ -7,11 +8,13 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
 import androidx.appcompat.app.AlertDialog
+import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.grapevineindustries.scoretracker.Player
 import com.grapevineindustries.scoretracker.Players
 import com.grapevineindustries.scoretracker.R
 import com.grapevineindustries.scoretracker.databinding.ListItemGameBinding
+import com.grapevineindustries.scoretracker.utilities.GLOBAL_DEALER_IDX
 
 class GameAdapter(private val players: Players): RecyclerView.Adapter<GameAdapter.ViewHolder>() {
 
@@ -19,14 +22,22 @@ class GameAdapter(private val players: Players): RecyclerView.Adapter<GameAdapte
         return ViewHolder.from(parent)
     }
 
+    @SuppressLint("ResourceAsColor")
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.bind(players[position])
+        holder.bind(players[position], position, players.size)
+
+//        if (position == (GLOBAL_DEALER_IDX % players.size)) {
+//            //holder.itemView.setBackgroundColor(R.color.colorAccent)
+//        }
     }
 
     override fun getItemCount() = players.size
 
     class ViewHolder (private val binding: ListItemGameBinding): RecyclerView.ViewHolder(binding.root) {
-        fun bind(player: Player) {
+        fun bind(player: Player, position: Int, size: Int) {
+            if (position == (GLOBAL_DEALER_IDX % size)) {
+                binding.root.setBackgroundColor(ContextCompat.getColor(binding.root.context, R.color.colorDealerTab))
+            }
             binding.listItemGameName.text = player.name
         }
 
@@ -34,6 +45,8 @@ class GameAdapter(private val players: Players): RecyclerView.Adapter<GameAdapte
             fun from(parent: ViewGroup) : ViewHolder {
                 val layoutInflater = LayoutInflater.from(parent.context)
                 val binding = ListItemGameBinding.inflate(layoutInflater, parent, false)
+
+
 
                 binding.listItemGameCalcScoreBtn.setOnClickListener { view: View ->
                     val builder = AlertDialog.Builder(parent.context)
