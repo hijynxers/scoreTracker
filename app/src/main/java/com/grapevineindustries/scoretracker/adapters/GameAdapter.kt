@@ -10,8 +10,8 @@ import android.widget.TextView
 import androidx.appcompat.app.AlertDialog
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
-import com.grapevineindustries.scoretracker.Player
-import com.grapevineindustries.scoretracker.Players
+import com.grapevineindustries.scoretracker.models.Player
+import com.grapevineindustries.scoretracker.models.Players
 import com.grapevineindustries.scoretracker.R
 import com.grapevineindustries.scoretracker.databinding.ListItemGameBinding
 import com.grapevineindustries.scoretracker.utilities.GLOBAL_DEALER_IDX

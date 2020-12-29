@@ -3,8 +3,8 @@ package com.grapevineindustries.scoretracker.adapters
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.grapevineindustries.scoretracker.Player
-import com.grapevineindustries.scoretracker.Players
+import com.grapevineindustries.scoretracker.models.Player
+import com.grapevineindustries.scoretracker.models.Players
 import com.grapevineindustries.scoretracker.databinding.ListItemGameOverBinding
 
 class GameOverAdapter(private val players: Players): RecyclerView.Adapter<GameOverAdapter.ViewHolder>() {

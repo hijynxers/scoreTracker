@@ -1,4 +1,4 @@
-package com.grapevineindustries.scoretracker
+package com.grapevineindustries.scoretracker.models
 
 import android.os.Parcel
 import android.os.Parcelable

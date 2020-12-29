@@ -8,7 +8,7 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.grapevineindustries.scoretracker.Players
+import com.grapevineindustries.scoretracker.models.Players
 import com.grapevineindustries.scoretracker.R
 import com.grapevineindustries.scoretracker.adapters.GameOverAdapter
 import com.grapevineindustries.scoretracker.databinding.FragmentGameOverBinding

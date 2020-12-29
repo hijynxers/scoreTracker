@@ -8,11 +8,9 @@ import android.view.ViewGroup
 import android.widget.EditText
 import androidx.databinding.DataBindingUtil
 import androidx.navigation.findNavController
-import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
-import com.grapevineindustries.scoretracker.Player
-import com.grapevineindustries.scoretracker.Players
+import com.grapevineindustries.scoretracker.models.Player
+import com.grapevineindustries.scoretracker.models.Players
 import com.grapevineindustries.scoretracker.R
 import com.grapevineindustries.scoretracker.adapters.AddPlayerAdapter
 import com.grapevineindustries.scoretracker.databinding.FragmentAddPlayersBinding

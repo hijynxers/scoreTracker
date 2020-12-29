@@ -2,9 +2,8 @@ package com.grapevineindustries.scoretracker.adapters
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import androidx.lifecycle.MutableLiveData
 import androidx.recyclerview.widget.RecyclerView
-import com.grapevineindustries.scoretracker.Player
+import com.grapevineindustries.scoretracker.models.Player
 import com.grapevineindustries.scoretracker.databinding.ListItemAddPlayerBinding
 
 class AddPlayerAdapter(private val playerList: MutableList<Player>, private val numPlayers: Int): RecyclerView.Adapter<AddPlayerAdapter.ViewHolder>() {
