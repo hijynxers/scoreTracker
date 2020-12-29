@@ -25,10 +25,6 @@ class GameAdapter(private val players: Players): RecyclerView.Adapter<GameAdapte
     @SuppressLint("ResourceAsColor")
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.bind(players[position], position, players.size)
-
-//        if (position == (GLOBAL_DEALER_IDX % players.size)) {
-//            //holder.itemView.setBackgroundColor(R.color.colorAccent)
-//        }
     }
 
     override fun getItemCount() = players.size
@@ -45,8 +41,6 @@ class GameAdapter(private val players: Players): RecyclerView.Adapter<GameAdapte
             fun from(parent: ViewGroup) : ViewHolder {
                 val layoutInflater = LayoutInflater.from(parent.context)
                 val binding = ListItemGameBinding.inflate(layoutInflater, parent, false)
-
-
 
                 binding.listItemGameCalcScoreBtn.setOnClickListener { view: View ->
                     val builder = AlertDialog.Builder(parent.context)
