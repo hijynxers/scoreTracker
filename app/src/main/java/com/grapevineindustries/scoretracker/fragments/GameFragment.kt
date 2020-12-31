@@ -42,36 +42,14 @@ class GameFragment : Fragment() {
             ++round
 
             if(round == 14) {
-                for (i in 0 until playerList.size) {
-                    val slot = binding.gameRecycler.getChildAt(i)
-                    val scoreToAdd = slot.findViewById<Button>(R.id.list_item_game_calcScoreBtn)
-                    playerList[i].score += scoreToAdd.text.toString().toInt()
-                }
+                // for each of these just update the score, don't need to display
+                updateScores(playerList, binding)
 
                 // start new thing
                 view.findNavController().navigate(GameFragmentDirections.actionGameFragmentToGameOverFragment(playerList))
             } else {
-                for (i in 0 until playerList.size) {
-                    val slot = binding.gameRecycler.getChildAt(i)
-                    val scoreToAdd = slot.findViewById<Button>(R.id.list_item_game_calcScoreBtn)
-                    playerList[i].score += scoreToAdd.text.toString().toInt()
-                    scoreToAdd.text = "0"
-
-                    // display the new score
-                    val score = slot.findViewById<TextView>(R.id.list_item_game_score)
-                    score.text = playerList[i].score.toString()
-
-                    if (i == (GLOBAL_DEALER_IDX % playerList.size)) {
-                        if (context != null) {
-                            slot.setBackgroundColor(ContextCompat.getColor(view.context, R.color.colorDealerTab))
-                        }
-                    }
-                    else {
-                        if (context != null) {
-                            slot.setBackgroundColor(ContextCompat.getColor(view.context, R.color.colorPrimary))
-                        }
-                    }
-                }
+                updateScores(playerList, binding)
+                updatedDisplay(playerList, binding, view)
                 binding.gameTvWildCard.text = updateWildcard(round)
             }
         }
@@ -79,8 +57,36 @@ class GameFragment : Fragment() {
         return binding.root
     }
 
-    private fun updateScore(playerList: Players, binding: FragmentGameBinding, view: View) {
+    private fun updateScores(playerList: Players, binding: FragmentGameBinding) {
+        for (i in 0 until playerList.size) {
+            val slot = binding.gameRecycler.getChildAt(i)
+            val scoreToAdd = slot.findViewById<Button>(R.id.list_item_game_calcScoreBtn)
+            playerList[i].score += scoreToAdd.text.toString().toInt()
+        }
+    }
 
+    private fun updatedDisplay(playerList: Players, binding: FragmentGameBinding, view: View) {
+        // down here, update score and display
+        for (i in 0 until playerList.size) {
+            val slot = binding.gameRecycler.getChildAt(i)
+            val scoreToAdd = slot.findViewById<Button>(R.id.list_item_game_calcScoreBtn)
+            scoreToAdd.text = "0"
+
+            // display the new score
+            val score = slot.findViewById<TextView>(R.id.list_item_game_score)
+            score.text = playerList[i].score.toString()
+
+            if (i == (GLOBAL_DEALER_IDX % playerList.size)) {
+                if (context != null) {
+                    slot.setBackgroundColor(ContextCompat.getColor(view.context, R.color.colorDealerTab))
+                }
+            }
+            else {
+                if (context != null) {
+                    slot.setBackgroundColor(ContextCompat.getColor(view.context, R.color.colorPrimary))
+                }
+            }
+        }
     }
 
     private fun updateWildcard(wildcard: Int): String {
