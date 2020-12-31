@@ -14,6 +14,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.grapevineindustries.scoretracker.R
 import com.grapevineindustries.scoretracker.adapters.GameAdapter
 import com.grapevineindustries.scoretracker.databinding.FragmentGameBinding
+import com.grapevineindustries.scoretracker.models.Players
 import com.grapevineindustries.scoretracker.utilities.GLOBAL_DEALER_IDX
 
 class GameFragment : Fragment() {
@@ -41,10 +42,15 @@ class GameFragment : Fragment() {
             ++round
 
             if(round == 14) {
+                for (i in 0 until playerList.size) {
+                    val slot = binding.gameRecycler.getChildAt(i)
+                    val scoreToAdd = slot.findViewById<Button>(R.id.list_item_game_calcScoreBtn)
+                    playerList[i].score += scoreToAdd.text.toString().toInt()
+                }
+
                 // start new thing
                 view.findNavController().navigate(GameFragmentDirections.actionGameFragmentToGameOverFragment(playerList))
             } else {
-                binding.gameTvWildCard.text = updateWildcard(round)
                 for (i in 0 until playerList.size) {
                     val slot = binding.gameRecycler.getChildAt(i)
                     val scoreToAdd = slot.findViewById<Button>(R.id.list_item_game_calcScoreBtn)
@@ -66,10 +72,15 @@ class GameFragment : Fragment() {
                         }
                     }
                 }
+                binding.gameTvWildCard.text = updateWildcard(round)
             }
         }
 
         return binding.root
+    }
+
+    private fun updateScore(playerList: Players, binding: FragmentGameBinding, view: View) {
+
     }
 
     private fun updateWildcard(wildcard: Int): String {

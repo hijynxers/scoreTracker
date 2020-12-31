@@ -7,7 +7,7 @@
     <data>
         <variable
             name="player"
-            type="com.grapevineindustries.scoretracker.Player" />
+            type="com.grapevineindustries.scoretracker.models.Player" />
 
     </data>
 
