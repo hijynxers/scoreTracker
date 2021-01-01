@@ -5,9 +5,9 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/container_game_over"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/container_game_over"
         android:background="@color/colorPrimary">
 
         <androidx.recyclerview.widget.RecyclerView
@@ -18,10 +18,25 @@
             android:layout_marginTop="16dp"
             android:layout_marginEnd="16dp"
             android:layout_marginBottom="8dp"
-            app:layout_constraintBottom_toTopOf="@+id/game_over_replayBtn"
+            app:layout_constraintBottom_toTopOf="@+id/game_over_newGameBtn"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/game_over_newGameBtn"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:backgroundTint="@color/colorPrimaryDark"
+            android:text="New Game"
+            android:textColor="@color/colorAccent"
+            app:layout_constraintBottom_toBottomOf="@+id/game_over_replayBtn"
+            app:layout_constraintEnd_toStartOf="@+id/game_over_replayBtn"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/game_over_replayBtn" />
 
         <Button
             android:id="@+id/game_over_replayBtn"
@@ -30,12 +45,13 @@
             android:layout_marginStart="16dp"
             android:layout_marginEnd="16dp"
             android:layout_marginBottom="16dp"
+            android:backgroundTint="@color/colorPrimaryDark"
             android:text="Replay"
             android:textColor="@color/colorAccent"
-            android:backgroundTint="@color/colorPrimaryDark"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/game_over_newGameBtn" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

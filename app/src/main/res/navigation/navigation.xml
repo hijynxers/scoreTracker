@@ -13,9 +13,12 @@
             android:name="playerList"
             app:argType="com.grapevineindustries.scoretracker.models.Players" />
         <action
-            android:id="@+id/action_gameOverFragment_to_addPlayersFragment"
-            app:destination="@id/addPlayersFragment"
-            app:popUpTo="@id/addPlayersFragment" />
+            android:id="@+id/action_gameOverFragment_to_gameFragment"
+            app:destination="@id/gameFragment"
+            app:popUpTo="@id/gameFragment" />
+        <action
+            android:id="@+id/action_gameOverFragment_to_titleFragment"
+            app:destination="@id/titleFragment" />
     </fragment>
     <fragment
         android:id="@+id/addPlayersFragment"

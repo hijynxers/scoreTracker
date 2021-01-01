@@ -35,7 +35,11 @@ class GameOverFragment : Fragment() {
             for (player in args.playerList) {
                 player.score = 0
             }
-            view.findNavController().navigate(GameOverFragmentDirections.actionGameOverFragmentToAddPlayersFragment(numPlayers))
+            view.findNavController().navigate(GameOverFragmentDirections.actionGameOverFragmentToGameFragment(args.playerList))
+        }
+
+        binding.gameOverNewGameBtn.setOnClickListener { view: View ->
+            view.findNavController().navigate(GameOverFragmentDirections.actionGameOverFragmentToTitleFragment())
         }
 
         return binding.root
