@@ -1,5 +1,7 @@
 package com.grapevineindustries.scoretracker.fragments
 
+import android.app.AlertDialog
+import android.content.DialogInterface
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -11,6 +13,7 @@ import androidx.core.content.ContextCompat
 import androidx.databinding.DataBindingUtil
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.grapevineindustries.scoretracker.R
 import com.grapevineindustries.scoretracker.adapters.GameAdapter
 import com.grapevineindustries.scoretracker.databinding.FragmentGameBinding
@@ -36,25 +39,57 @@ class GameFragment : Fragment() {
 
         val manager = LinearLayoutManager(activity)
         binding.gameRecycler.layoutManager = manager
-
         binding.gameBtnTallyScore.setOnClickListener { view: View ->
-            ++GLOBAL_DEALER_IDX
-            ++round
 
-            if(round == 14) {
-                // for each of these just update the score, don't need to display
-                updateScores(playerList, binding)
-
-                // start new thing
-                view.findNavController().navigate(GameFragmentDirections.actionGameFragmentToGameOverFragment(playerList))
+            var allZero = true
+            var keepGoing = false
+            for (i in 0 until playerList.size) {
+                val slot = binding.gameRecycler.getChildAt(i)
+                val scoreToAdd = slot.findViewById<Button>(R.id.list_item_game_calcScoreBtn)
+                if (scoreToAdd.text.toString() != "0") {
+                    allZero = false
+                }
+            }
+            if (allZero) {
+                context?.let {
+                    MaterialAlertDialogBuilder(it, R.style.AlertDialogTheme)
+                        .setMessage("Do you want to continue?")
+                        .setPositiveButton("Yes") { _, _ ->
+                            ++GLOBAL_DEALER_IDX
+                            ++round
+                            nextRound(round, playerList, binding, view)
+                        }
+                        .setNegativeButton("No") { _, _ ->
+                            keepGoing = false
+                        }
+                        .show()
+                }
             } else {
-                updateScores(playerList, binding)
-                updatedDisplay(playerList, binding, view)
-                binding.gameTvWildCard.text = updateWildcard(round)
+                keepGoing = true
+            }
+
+            if (keepGoing){
+                ++GLOBAL_DEALER_IDX
+                ++round
+                nextRound(round, playerList, binding, view)
             }
         }
 
         return binding.root
+    }
+
+    private fun nextRound(round: Int, playerList: Players, binding: FragmentGameBinding, view: View) {
+        if(round == 14) {
+            // for each of these just update the score, don't need to display
+            updateScores(playerList, binding)
+
+            // start new thing
+            view.findNavController().navigate(GameFragmentDirections.actionGameFragmentToGameOverFragment(playerList))
+        } else {
+            updateScores(playerList, binding)
+            updatedDisplay(playerList, binding, view)
+            binding.gameTvWildCard.text = updateWildcard(round)
+        }
     }
 
     private fun updateScores(playerList: Players, binding: FragmentGameBinding) {
@@ -98,3 +133,4 @@ class GameFragment : Fragment() {
         }
     }
 }
+

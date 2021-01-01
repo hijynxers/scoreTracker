@@ -10,6 +10,7 @@ import android.widget.TextView
 import androidx.appcompat.app.AlertDialog
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.grapevineindustries.scoretracker.models.Player
 import com.grapevineindustries.scoretracker.models.Players
 import com.grapevineindustries.scoretracker.R
@@ -43,7 +44,7 @@ class GameAdapter(private val players: Players): RecyclerView.Adapter<GameAdapte
                 val binding = ListItemGameBinding.inflate(layoutInflater, parent, false)
 
                 binding.listItemGameCalcScoreBtn.setOnClickListener { view: View ->
-                    val builder = AlertDialog.Builder(parent.context)
+                    val builder = MaterialAlertDialogBuilder(parent.context)
                     val dialogLayout = layoutInflater.inflate(R.layout.dialog_popup_calc, null)
                     builder.setView(dialogLayout)
 
