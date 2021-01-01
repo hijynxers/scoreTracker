@@ -1,7 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+<!--    <color name="colorPrimary">#5E35B1</color>-->
+<!--    <color name="colorPrimaryDark">#442681</color>-->
+<!--    <color name="colorAccent">#FFAB40</color>-->
+<!--    <color name="colorPrimaryDark">#4D23A3</color>-->
+
     <color name="colorPrimary">#5E35B1</color>
-    <color name="colorPrimaryDark">#442681</color>
-    <color name="colorAccent">#FFAB40</color>
-    <color name="colorDealerTab">#4D23A3</color>
+    <color name="colorPrimaryDark">#4f0695</color>
+    <color name="purple_light">#b66cfb</color>
+    <color name="white">#FFFFFF</color>
+    <color name="black">#000000</color>
+    <color name="teal_200">#4FF3DA</color>
+    <color name="teal_700">#13C29F</color>
+    <color name="colorAccent">#ffd148</color>
+    <color name="yellow_dark">#c8a005</color>
+    <color name="yellow_light">#ffff7a</color>
 </resources>

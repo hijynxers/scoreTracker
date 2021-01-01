@@ -32,7 +32,7 @@ class GameAdapter(private val players: Players): RecyclerView.Adapter<GameAdapte
     class ViewHolder (private val binding: ListItemGameBinding): RecyclerView.ViewHolder(binding.root) {
         fun bind(player: Player, position: Int, size: Int) {
             if (position == (GLOBAL_DEALER_IDX % size)) {
-                binding.root.setBackgroundColor(ContextCompat.getColor(binding.root.context, R.color.colorDealerTab))
+                binding.root.setBackgroundColor(ContextCompat.getColor(binding.root.context, R.color.purple_light))
             }
             binding.listItemGameName.text = player.name
         }
