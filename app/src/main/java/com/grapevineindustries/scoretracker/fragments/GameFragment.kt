@@ -1,7 +1,5 @@
 package com.grapevineindustries.scoretracker.fragments
 
-import android.app.AlertDialog
-import android.content.DialogInterface
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -52,7 +50,7 @@ class GameFragment : Fragment() {
             }
             if (allZero) {
                 context?.let {
-                    MaterialAlertDialogBuilder(it, R.style.AlertDialogTheme)
+                    MaterialAlertDialogBuilder(it, R.style.AlertDialogTheme_FiveCrowns)
                         .setMessage("Do you want to continue?")
                         .setPositiveButton("Yes") { _, _ ->
                             ++GLOBAL_DEALER_IDX
