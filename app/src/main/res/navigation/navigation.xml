@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/navigation"
-    app:startDestination="@id/titleFragment">
+    app:startDestination="@id/fiveCrownsTitleFragment">
 
     <fragment
         android:id="@+id/gameOverFragment"
@@ -19,8 +19,8 @@
             app:popUpToInclusive="true" />
         <action
             android:id="@+id/action_gameOverFragment_to_titleFragment"
-            app:destination="@id/titleFragment"
-            app:popUpTo="@id/titleFragment"
+            app:destination="@id/fiveCrownsTitleFragment"
+            app:popUpTo="@id/fiveCrownsTitleFragment"
             app:popUpToInclusive="true" />
     </fragment>
     <fragment
@@ -48,12 +48,17 @@
             app:argType="com.grapevineindustries.scoretracker.models.Players" />
     </fragment>
     <fragment
-        android:id="@+id/titleFragment"
-        android:name="com.grapevineindustries.scoretracker.fragments.TitleFragment"
-        android:label="fragment_title"
-        tools:layout="@layout/fragment_title" >
+        android:id="@+id/fiveCrownsTitleFragment"
+        android:name="com.grapevineindustries.scoretracker.fragments.FiveCrownsTitleFragment"
+        android:label="Five Crowns"
+        tools:layout="@layout/fragment_title_fivecrowns" >
         <action
             android:id="@+id/action_titleFragment_to_addPlayersFragment"
             app:destination="@id/addPlayersFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/blankFragment"
+        android:name="com.grapevineindustries.scoretracker.BlankFragment"
+        android:label="fragment_blank"
+        tools:layout="@layout/fragment_blank" />
 </navigation>

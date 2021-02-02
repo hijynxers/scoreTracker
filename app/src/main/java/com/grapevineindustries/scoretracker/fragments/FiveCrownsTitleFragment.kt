@@ -8,21 +8,21 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.navigation.findNavController
 import com.grapevineindustries.scoretracker.R
-import com.grapevineindustries.scoretracker.databinding.FragmentTitleBinding
+import com.grapevineindustries.scoretracker.databinding.FragmentTitleFivecrownsBinding
 
-class TitleFragment : Fragment() {
+class FiveCrownsTitleFragment : Fragment() {
 
     private var numPlayers = 2
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         // to get FragmentTitleBinding to generate you need a "<layout>" tag around the xml file
-        val binding = DataBindingUtil.inflate<FragmentTitleBinding>(inflater, R.layout.fragment_title, container, false)
+        val binding = DataBindingUtil.inflate<FragmentTitleFivecrownsBinding>(inflater, R.layout.fragment_title_fivecrowns, container, false)
 
         binding.tvNumPlayers.text = numPlayers.toString()
 
 
         binding.btnStart.setOnClickListener { view : View ->
-            view.findNavController().navigate(TitleFragmentDirections.actionTitleFragmentToAddPlayersFragment(numPlayers))
+            view.findNavController().navigate(FiveCrownsTitleFragmentDirections.actionTitleFragmentToAddPlayersFragment(numPlayers))
         }
 
         binding.btnPlus.setOnClickListener { view : View ->
