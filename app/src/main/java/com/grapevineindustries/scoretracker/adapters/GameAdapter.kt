@@ -39,6 +39,12 @@ class GameAdapter(private val players: Players): RecyclerView.Adapter<GameAdapte
         }
 
         companion object {
+
+
+            // fun from(parent: ViewGroup, player: Player) : ViewHolder
+                // -- the player has to get in here somehow, but I don't see how to get it into the onCreateViewHolder above
+                // might have to figure out a different way to start the dialog
+
             fun from(parent: ViewGroup) : ViewHolder {
                 val layoutInflater = LayoutInflater.from(parent.context)
                 val binding = ListItemGameBinding.inflate(layoutInflater, parent, false)
@@ -49,6 +55,11 @@ class GameAdapter(private val players: Players): RecyclerView.Adapter<GameAdapte
                     builder.setView(dialogLayout)
 
                     val tvScore = dialogLayout.findViewById<TextView>(R.id.calcScore)
+
+
+                    // here's how to update the name once we have the data
+                    // val tvName = dialogLayout.findViewById<TextView>(R.id.tv_name)
+                    // tvName.text = player.name
 
                     val btn3 = dialogLayout.findViewById<Button>(R.id.btn_3)
                     btn3.setOnClickListener { _: View ->
