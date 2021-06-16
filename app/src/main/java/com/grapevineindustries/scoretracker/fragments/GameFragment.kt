@@ -51,7 +51,7 @@ class GameFragment : Fragment() {
             if (allZero) {
                 context?.let {
                     MaterialAlertDialogBuilder(it, R.style.AlertDialogTheme_FiveCrowns)
-                        .setMessage("Do you want to continue?")
+                        .setTitle("Do you want to continue?")
                         .setPositiveButton("Yes") { _, _ ->
                             ++GLOBAL_DEALER_IDX
                             ++round
