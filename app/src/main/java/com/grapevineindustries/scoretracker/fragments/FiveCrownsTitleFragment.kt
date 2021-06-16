@@ -13,6 +13,7 @@ import com.grapevineindustries.scoretracker.databinding.FragmentTitlePageBinding
 class FiveCrownsTitleFragment : Fragment() {
 
     private var numPlayers = 2
+    private var gameType = "FIVE_CROWNS"
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         // to get FragmentTitleBinding to generate you need a "<layout>" tag around the xml file
@@ -22,7 +23,7 @@ class FiveCrownsTitleFragment : Fragment() {
 
 
         binding.btnStart.setOnClickListener { view : View ->
-            view.findNavController().navigate(FiveCrownsTitleFragmentDirections.actionTitleFragmentToAddPlayersFragment(numPlayers))
+            view.findNavController().navigate(FiveCrownsTitleFragmentDirections.actionTitleFragmentToAddPlayersFragment(numPlayers, gameType))
         }
 
         binding.btnPlus.setOnClickListener { view : View ->

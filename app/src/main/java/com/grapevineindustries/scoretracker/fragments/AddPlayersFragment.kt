@@ -24,6 +24,7 @@ class AddPlayersFragment : Fragment() {
         val args = AddPlayersFragmentArgs.fromBundle(requireArguments())
 
         val playerList = initPlayerList(args.numPlayers)
+        val gameType = args.gameType
 
         // create instance of the adapter
         val adapter = AddPlayerAdapter(playerList, args.numPlayers)
@@ -42,7 +43,7 @@ class AddPlayersFragment : Fragment() {
                 playerList[num].name = name
             }
 
-            view.findNavController().navigate(AddPlayersFragmentDirections.actionAddPlayersFragmentToGameFragment(playerList))
+            view.findNavController().navigate(AddPlayersFragmentDirections.actionAddPlayersFragmentToGameFragment(playerList, gameType))
         }
 
         return binding.root

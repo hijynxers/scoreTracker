@@ -18,6 +18,7 @@ class GameOverFragment : Fragment() {
         val binding = DataBindingUtil.inflate<FragmentGameOverBinding>(inflater, R.layout.fragment_game_over, container, false)
         val args = GameFragmentArgs.fromBundle(requireArguments())
 
+
         val numPlayers =  args.playerList.size
         val sortedList =  args.playerList.sortedWith(compareBy { it.score })
 
@@ -35,7 +36,7 @@ class GameOverFragment : Fragment() {
             for (player in args.playerList) {
                 player.score = 0
             }
-            view.findNavController().navigate(GameOverFragmentDirections.actionGameOverFragmentToGameFragment(args.playerList))
+            view.findNavController().navigate(GameOverFragmentDirections.actionGameOverFragmentToGameFragment(args.playerList, args.gameType))
         }
 
         binding.gameOverNewGameBtn.setOnClickListener { view: View ->

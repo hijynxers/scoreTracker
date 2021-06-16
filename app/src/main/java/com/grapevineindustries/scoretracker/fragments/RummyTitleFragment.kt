@@ -15,6 +15,7 @@ import com.grapevineindustries.scoretracker.databinding.FragmentTitlePageBinding
 class RummyTitleFragment : Fragment() {
 
     private var numPlayers = 2
+    private var gameType = "RUMMY"
 
     override fun onCreateView( inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val binding = DataBindingUtil.inflate<FragmentTitlePageBinding>(inflater, R.layout.fragment_title_page, container, false)
@@ -25,7 +26,7 @@ class RummyTitleFragment : Fragment() {
 
 
         binding.btnStart.setOnClickListener { view : View ->
-            view.findNavController().navigate(RummyTitleFragmentDirections.actionTitleFragmentToAddPlayersFragment23(numPlayers))
+            view.findNavController().navigate(RummyTitleFragmentDirections.actionRummyTitleFragmentToAddPlayersFragment3(numPlayers, gameType))
         }
 
         binding.btnPlus.setOnClickListener { view : View ->
