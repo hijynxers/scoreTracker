@@ -6,6 +6,15 @@
     app:startDestination="@id/fiveCrownsTitleFragment">
 
     <fragment
+        android:id="@+id/addPlayersFragment2"
+        android:name="com.grapevineindustries.scoretracker.fragments.AddPlayersFragment"
+        android:label="fragment_add_players"
+        tools:layout="@layout/fragment_add_players">
+        <argument
+            android:name="numPlayers"
+            app:argType="integer" />
+    </fragment>
+    <fragment
         android:id="@+id/gameOverFragment"
         android:name="com.grapevineindustries.scoretracker.fragments.GameOverFragment"
         android:label="GameOverFragment" >
@@ -51,14 +60,30 @@
         android:id="@+id/fiveCrownsTitleFragment"
         android:name="com.grapevineindustries.scoretracker.fragments.FiveCrownsTitleFragment"
         android:label="Five Crowns"
-        tools:layout="@layout/fragment_title_fivecrowns" >
+        tools:layout="@layout/fragment_title_page" >
         <action
             android:id="@+id/action_titleFragment_to_addPlayersFragment"
+            app:destination="@id/addPlayersFragment" />
+        <action
+            android:id="@+id/action_titleFragment_to_addPlayersFragment2"
             app:destination="@id/addPlayersFragment" />
     </fragment>
     <fragment
         android:id="@+id/blankFragment"
-        android:name="com.grapevineindustries.scoretracker.BlankFragment"
+        android:name="com.grapevineindustries.scoretracker.fragments.RummyTitleFragment"
         android:label="fragment_blank"
-        tools:layout="@layout/fragment_blank" />
+        tools:layout="@layout/fragment_blank" >
+        <action
+            android:id="@+id/action_blankFragment_to_addPlayersFragment2"
+            app:destination="@id/addPlayersFragment2" />
+    </fragment>
+    <fragment
+        android:id="@+id/rummyTitleFragment"
+        android:name="com.grapevineindustries.scoretracker.fragments.RummyTitleFragment"
+        android:label="Rummy"
+        tools:layout="@layout/fragment_title_page" >
+        <action
+            android:id="@+id/action_titleFragment_to_addPlayersFragment23"
+            app:destination="@id/addPlayersFragment2" />
+    </fragment>
 </navigation>

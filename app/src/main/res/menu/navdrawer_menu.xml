@@ -2,6 +2,6 @@
 <menu xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <item android:title="First Item" android:id="@+id/fiveCrownsTitleFragment"/>
-    <item android:title="blankFrag Item" android:id="@+id/blankFragment"/>
+    <item android:title="Five Crowns" android:id="@+id/fiveCrownsTitleFragment"/>
+    <item android:title="Rummy" android:id="@+id/rummyTitleFragment"/>
 </menu>
