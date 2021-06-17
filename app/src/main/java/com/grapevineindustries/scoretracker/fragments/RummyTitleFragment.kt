@@ -10,12 +10,13 @@ import androidx.navigation.findNavController
 import com.grapevineindustries.scoretracker.R
 import com.grapevineindustries.scoretracker.databinding.FragmentAddPlayersBinding
 import com.grapevineindustries.scoretracker.databinding.FragmentTitlePageBinding
+import com.grapevineindustries.scoretracker.utilities.GLOBAL_GAME_RUMMY
 
 
 class RummyTitleFragment : Fragment() {
 
     private var numPlayers = 2
-    private var gameType = "RUMMY"
+    private var gameType = GLOBAL_GAME_RUMMY
 
     override fun onCreateView( inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val binding = DataBindingUtil.inflate<FragmentTitlePageBinding>(inflater, R.layout.fragment_title_page, container, false)

@@ -9,11 +9,12 @@ import androidx.databinding.DataBindingUtil
 import androidx.navigation.findNavController
 import com.grapevineindustries.scoretracker.R
 import com.grapevineindustries.scoretracker.databinding.FragmentTitlePageBinding
+import com.grapevineindustries.scoretracker.utilities.GLOBAL_GAME_FIVE_CROWNS
 
 class FiveCrownsTitleFragment : Fragment() {
 
     private var numPlayers = 2
-    private var gameType = "FIVE_CROWNS"
+    private var gameType = GLOBAL_GAME_FIVE_CROWNS
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         // to get FragmentTitleBinding to generate you need a "<layout>" tag around the xml file

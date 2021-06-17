@@ -12,15 +12,19 @@ import com.grapevineindustries.scoretracker.models.Players
 import com.grapevineindustries.scoretracker.R
 import com.grapevineindustries.scoretracker.adapters.GameOverAdapter
 import com.grapevineindustries.scoretracker.databinding.FragmentGameOverBinding
+import com.grapevineindustries.scoretracker.utilities.GLOBAL_GAME_RUMMY
+import java.util.*
 
 class GameOverFragment : Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val binding = DataBindingUtil.inflate<FragmentGameOverBinding>(inflater, R.layout.fragment_game_over, container, false)
         val args = GameFragmentArgs.fromBundle(requireArguments())
 
+        var sortedList =  args.playerList.sortedWith(compareBy { it.score })
 
-        val numPlayers =  args.playerList.size
-        val sortedList =  args.playerList.sortedWith(compareBy { it.score })
+        if (args.gameType == GLOBAL_GAME_RUMMY) {
+            sortedList = sortedList.reversed()
+        }
 
         val sortedLists = Players()
         for(player in sortedList) {
