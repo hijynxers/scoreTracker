@@ -59,10 +59,6 @@ class Rummy {
                 ++GLOBAL_DEALER_IDX
                 nextRound(playerList, binding, view, context, gameType)
             }
-//
-//            if (keepGoing){
-//
-//            }
         }
     }
 
