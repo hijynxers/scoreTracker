@@ -19,6 +19,8 @@ import com.grapevineindustries.scoretracker.adapters.AddPlayerAdapter
 import com.grapevineindustries.scoretracker.databinding.FragmentAddPlayersBinding
 import com.grapevineindustries.scoretracker.models.Player
 import com.grapevineindustries.scoretracker.models.Players
+import com.grapevineindustries.scoretracker.utilities.GLOBAL_GAME_FIVE_CROWNS
+import com.grapevineindustries.scoretracker.utilities.GLOBAL_GAME_RUMMY
 
 
 class AddPlayersFragment : Fragment() {
@@ -27,12 +29,7 @@ class AddPlayersFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        activity?.onBackPressedDispatcher?.addCallback(this, object : OnBackPressedCallback(true) {
-            override fun handleOnBackPressed() {
-                // in here you can do logic when backPress is clicked
-                (activity as AppCompatActivity).supportActionBar?.show()
-            }
-        })
+
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -65,6 +62,18 @@ class AddPlayersFragment : Fragment() {
 
             view.findNavController().navigate(AddPlayersFragmentDirections.actionAddPlayersFragmentToGameFragment(playerList, gameType))
         }
+
+        activity?.onBackPressedDispatcher?.addCallback(viewLifecycleOwner, object : OnBackPressedCallback(true) {
+            override fun handleOnBackPressed() {
+                // in here you can do logic when backPress is clicked
+                (activity as AppCompatActivity).supportActionBar?.show()
+                if (gameType == GLOBAL_GAME_FIVE_CROWNS) {
+                    view?.findNavController()?.navigate(AddPlayersFragmentDirections.actionAddPlayersFragmentToFiveCrownsTitleFragment())
+                } else if (gameType == GLOBAL_GAME_RUMMY) {
+                    view?.findNavController()?.navigate(AddPlayersFragmentDirections.actionAddPlayersFragmentToRummyTitleFragment())
+                }
+            }
+        })
 
         return binding.root
     }

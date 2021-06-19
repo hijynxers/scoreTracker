@@ -29,11 +29,19 @@
     <fragment
         android:id="@+id/addPlayersFragment"
         android:name="com.grapevineindustries.scoretracker.fragments.AddPlayersFragment"
-        android:label="fragment_add_players"
+        android:label=""
         tools:layout="@layout/fragment_add_players" >
         <action
             android:id="@+id/action_addPlayersFragment_to_gameFragment"
             app:destination="@id/gameFragment" />
+        <action
+            android:id="@+id/action_addPlayersFragment_to_rummyTitleFragment"
+            app:popUpTo="@id/rummyTitleFragment"
+            app:popUpToInclusive="false" />
+        <action
+            android:id="@+id/action_addPlayersFragment_to_fiveCrownsTitleFragment"
+            app:popUpTo="@id/fiveCrownsTitleFragment"
+            app:popUpToInclusive="false" />
         <argument
             android:name="numPlayers"
             app:argType="integer" />

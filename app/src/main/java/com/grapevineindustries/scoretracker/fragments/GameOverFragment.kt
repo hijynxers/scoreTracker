@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -40,11 +41,13 @@ class GameOverFragment : Fragment() {
             for (player in args.playerList) {
                 player.score = 0
             }
+
             view.findNavController().navigate(GameOverFragmentDirections.actionGameOverFragmentToGameFragment(args.playerList, args.gameType))
         }
 
         binding.gameOverNewGameBtn.setOnClickListener { view: View ->
             view.findNavController().navigate(GameOverFragmentDirections.actionGameOverFragmentToTitleFragment())
+            (activity as AppCompatActivity).supportActionBar?.show()
         }
 
         return binding.root
