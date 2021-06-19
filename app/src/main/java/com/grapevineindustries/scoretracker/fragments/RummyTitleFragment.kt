@@ -27,7 +27,7 @@ class RummyTitleFragment : Fragment() {
 
 
         binding.btnStart.setOnClickListener { view : View ->
-            view.findNavController().navigate(RummyTitleFragmentDirections.actionRummyTitleFragmentToAddPlayersFragment3(numPlayers, gameType))
+        //    view.findNavController().navigate(RummyTitleFragmentDirections.actionRummyTitleFragmentToAddPlayersFragment3(numPlayers, gameType))
         }
 
         binding.btnPlus.setOnClickListener { view : View ->

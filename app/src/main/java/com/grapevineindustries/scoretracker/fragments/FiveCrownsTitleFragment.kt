@@ -24,7 +24,7 @@ class FiveCrownsTitleFragment : Fragment() {
 
 
         binding.btnStart.setOnClickListener { view : View ->
-            view.findNavController().navigate(FiveCrownsTitleFragmentDirections.actionTitleFragmentToAddPlayersFragment(numPlayers, gameType))
+           // view.findNavController().navigate(FiveCrownsTitleFragmentDirections.actionTitleFragmentToAddPlayersFragment(numPlayers, gameType))
         }
 
         binding.btnPlus.setOnClickListener { view : View ->

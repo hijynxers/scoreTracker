@@ -20,11 +20,6 @@
             app:destination="@id/gameFragment"
             app:popUpTo="@id/gameFragment"
             app:popUpToInclusive="true" />
-        <action
-            android:id="@+id/action_gameOverFragment_to_titleFragment"
-            app:destination="@id/fiveCrownsTitleFragment"
-            app:popUpTo="@id/fiveCrownsTitleFragment"
-            app:popUpToInclusive="true" />
     </fragment>
     <fragment
         android:id="@+id/addPlayersFragment"
@@ -34,14 +29,6 @@
         <action
             android:id="@+id/action_addPlayersFragment_to_gameFragment"
             app:destination="@id/gameFragment" />
-        <action
-            android:id="@+id/action_addPlayersFragment_to_rummyTitleFragment"
-            app:popUpTo="@id/rummyTitleFragment"
-            app:popUpToInclusive="false" />
-        <action
-            android:id="@+id/action_addPlayersFragment_to_fiveCrownsTitleFragment"
-            app:popUpTo="@id/fiveCrownsTitleFragment"
-            app:popUpToInclusive="false" />
         <argument
             android:name="numPlayers"
             app:argType="integer" />
@@ -68,18 +55,10 @@
         android:id="@+id/fiveCrownsTitleFragment"
         android:name="com.grapevineindustries.scoretracker.fragments.FiveCrownsTitleFragment"
         android:label="Five Crowns"
-        tools:layout="@layout/fragment_title_page" >
-        <action
-            android:id="@+id/action_titleFragment_to_addPlayersFragment"
-            app:destination="@id/addPlayersFragment" />
-    </fragment>
+        tools:layout="@layout/fragment_title_page" />
     <fragment
         android:id="@+id/rummyTitleFragment"
         android:name="com.grapevineindustries.scoretracker.fragments.RummyTitleFragment"
         android:label="Rummy"
-        tools:layout="@layout/fragment_title_page" >
-        <action
-            android:id="@+id/action_rummyTitleFragment_to_addPlayersFragment3"
-            app:destination="@id/addPlayersFragment" />
-    </fragment>
+        tools:layout="@layout/fragment_title_page" />
 </navigation>

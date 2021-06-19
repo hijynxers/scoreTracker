@@ -33,6 +33,11 @@
         <item name="materialAlertDialogTheme">@style/AlertDialogTheme_FiveCrowns</item>
     </style>
 
+    <style name="NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
     <style name="AlertDialogTheme_FiveCrowns" parent="ThemeOverlay.MaterialComponents.MaterialAlertDialog">
         <item name="colorSurface">#212121</item>
         <item name="materialAlertDialogTitleTextStyle">@style/TitleTextStyle</item>

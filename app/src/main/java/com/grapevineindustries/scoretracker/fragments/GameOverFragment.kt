@@ -14,7 +14,6 @@ import com.grapevineindustries.scoretracker.R
 import com.grapevineindustries.scoretracker.adapters.GameOverAdapter
 import com.grapevineindustries.scoretracker.databinding.FragmentGameOverBinding
 import com.grapevineindustries.scoretracker.utilities.GLOBAL_GAME_RUMMY
-import java.util.*
 
 class GameOverFragment : Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -46,7 +45,7 @@ class GameOverFragment : Fragment() {
         }
 
         binding.gameOverNewGameBtn.setOnClickListener { view: View ->
-            view.findNavController().navigate(GameOverFragmentDirections.actionGameOverFragmentToTitleFragment())
+        //    view.findNavController().navigate(GameOverFragmentDirections.actionGameOverFragmentToTitleFragment())
             (activity as AppCompatActivity).supportActionBar?.show()
         }
 
