@@ -8,7 +8,6 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.navigation.findNavController
 import com.grapevineindustries.scoretracker.R
-import com.grapevineindustries.scoretracker.databinding.FragmentAddPlayersBinding
 import com.grapevineindustries.scoretracker.databinding.FragmentTitlePageBinding
 import com.grapevineindustries.scoretracker.utilities.GLOBAL_GAME_RUMMY
 
@@ -25,9 +24,8 @@ class RummyTitleFragment : Fragment() {
 
         binding.tvNumPlayers.text = numPlayers.toString()
 
-
         binding.btnStart.setOnClickListener { view : View ->
-        //    view.findNavController().navigate(RummyTitleFragmentDirections.actionRummyTitleFragmentToAddPlayersFragment3(numPlayers, gameType))
+            view.findNavController().navigate(RummyTitleFragmentDirections.actionNavRummyToNavAddPlayersFragment(numPlayers, gameType))
         }
 
         binding.btnPlus.setOnClickListener { view : View ->

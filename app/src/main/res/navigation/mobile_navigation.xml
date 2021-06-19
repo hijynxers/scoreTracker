@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/nav_fiveCrowns">
+
+    <fragment
+        android:id="@+id/nav_fiveCrowns"
+        android:name="com.grapevineindustries.scoretracker.fragments.FiveCrownsTitleFragment"
+        android:label="@string/menu_fiveCrowns"
+        tools:layout="@layout/fragment_title_page" >
+        <action
+            android:id="@+id/action_fiveCrownsTitle_to_addPlayersFragment"
+            app:destination="@id/nav_addPlayersFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/nav_rummy"
+        android:name="com.grapevineindustries.scoretracker.fragments.RummyTitleFragment"
+        android:label="@string/menu_rummy"
+        tools:layout="@layout/fragment_title_page" >
+        <action
+            android:id="@+id/action_nav_Rummy_to_nav_addPlayersFragment"
+            app:destination="@id/nav_addPlayersFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/nav_addPlayersFragment"
+        android:name="com.grapevineindustries.scoretracker.fragments.AddPlayersFragment"
+        android:label=""
+        tools:layout="@layout/fragment_add_players" >
+        <action
+            android:id="@+id/action_addPlayersFragment_to_gameFragment"
+            app:destination="@id/nav_gameFragment" />
+        <action
+            android:id="@+id/action_addPlayersFragment_to_rummyTitleFragment"
+            app:popUpTo="@id/nav_rummy"
+            app:popUpToInclusive="false" />
+        <action
+            android:id="@+id/action_addPlayersFragment_to_fiveCrownsTitleFragment"
+            app:popUpTo="@id/nav_fiveCrowns"
+            app:popUpToInclusive="false" />
+        <argument
+            android:name="numPlayers"
+            app:argType="integer" />
+        <argument
+            android:name="gameType"
+            app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/nav_gameFragment"
+        android:name="com.grapevineindustries.scoretracker.fragments.GameFragment"
+        android:label="fragment_game"
+        tools:layout="@layout/fragment_game" >
+        <action
+            android:id="@+id/action_gameFragment_to_gameOverFragment"
+            app:destination="@id/nav_gameOverFragment" />
+        <argument
+            android:name="playerList"
+            app:argType="com.grapevineindustries.scoretracker.models.Players" />
+        <argument
+            android:name="gameType"
+            app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/nav_gameOverFragment"
+        android:name="com.grapevineindustries.scoretracker.fragments.GameOverFragment"
+        android:label="GameOverFragment"
+        tools:layout="@layout/fragment_game_over" >
+        <action
+            android:id="@+id/action_gameOverFragment_to_gameFragment"
+            app:destination="@id/nav_gameFragment"
+            app:popUpTo="@id/nav_gameFragment"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_gameOverFragment_to_fiveCrownsTitle"
+            app:destination="@id/nav_fiveCrowns"
+            app:popUpTo="@id/nav_fiveCrowns"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_gameOverFragment_to_rummyTitleFragment"
+            app:destination="@id/nav_rummy"
+            app:popUpTo="@id/nav_rummy"
+            app:popUpToInclusive="true" />
+        <argument
+            android:name="playerList"
+            app:argType="com.grapevineindustries.scoretracker.models.Players" />
+        <argument
+            android:name="gameType"
+            app:argType="string" />
+    </fragment>
+</navigation>

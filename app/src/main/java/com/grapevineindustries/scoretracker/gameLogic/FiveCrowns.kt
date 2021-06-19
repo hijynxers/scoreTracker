@@ -121,7 +121,7 @@ class FiveCrowns {
 
             if (i == (GLOBAL_DEALER_IDX % playerList.size)) {
                 if (context != null) {
-                    slot.setBackgroundColor(ContextCompat.getColor(view.context, R.color.purple_light))
+                    slot.setBackgroundColor(ContextCompat.getColor(view.context, R.color.colorPrimaryLight))
                 }
             }
             else {

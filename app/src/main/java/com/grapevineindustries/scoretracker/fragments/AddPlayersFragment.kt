@@ -68,9 +68,9 @@ class AddPlayersFragment : Fragment() {
                 // in here you can do logic when backPress is clicked
                 (activity as AppCompatActivity).supportActionBar?.show()
                 if (gameType == GLOBAL_GAME_FIVE_CROWNS) {
-                    //view?.findNavController()?.navigate(AddPlayersFragmentDirections.actionAddPlayersFragmentToFiveCrownsTitleFragment())
+                    view?.findNavController()?.navigate(AddPlayersFragmentDirections.actionAddPlayersFragmentToFiveCrownsTitleFragment())
                 } else if (gameType == GLOBAL_GAME_RUMMY) {
-                 //   view?.findNavController()?.navigate(AddPlayersFragmentDirections.actionAddPlayersFragmentToRummyTitleFragment())
+                    view?.findNavController()?.navigate(AddPlayersFragmentDirections.actionAddPlayersFragmentToRummyTitleFragment())
                 }
             }
         })

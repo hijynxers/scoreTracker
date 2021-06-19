@@ -7,7 +7,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
-import androidx.appcompat.app.AlertDialog
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
@@ -33,7 +32,7 @@ class GameAdapter(private val players: Players): RecyclerView.Adapter<GameAdapte
     class ViewHolder (private val binding: ListItemGameBinding): RecyclerView.ViewHolder(binding.root) {
         fun bind(player: Player, position: Int, size: Int) {
             if (position == (GLOBAL_DEALER_IDX % size)) {
-                binding.root.setBackgroundColor(ContextCompat.getColor(binding.root.context, R.color.purple_light))
+                binding.root.setBackgroundColor(ContextCompat.getColor(binding.root.context, R.color.colorPrimaryLight))
             }
             binding.listItemGameName.text = player.name
         }

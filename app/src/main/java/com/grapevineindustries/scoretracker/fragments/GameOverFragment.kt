@@ -13,6 +13,7 @@ import com.grapevineindustries.scoretracker.models.Players
 import com.grapevineindustries.scoretracker.R
 import com.grapevineindustries.scoretracker.adapters.GameOverAdapter
 import com.grapevineindustries.scoretracker.databinding.FragmentGameOverBinding
+import com.grapevineindustries.scoretracker.utilities.GLOBAL_GAME_FIVE_CROWNS
 import com.grapevineindustries.scoretracker.utilities.GLOBAL_GAME_RUMMY
 
 class GameOverFragment : Fragment() {
@@ -45,7 +46,14 @@ class GameOverFragment : Fragment() {
         }
 
         binding.gameOverNewGameBtn.setOnClickListener { view: View ->
-        //    view.findNavController().navigate(GameOverFragmentDirections.actionGameOverFragmentToTitleFragment())
+            if(args.gameType == GLOBAL_GAME_FIVE_CROWNS)
+            {
+                view.findNavController().navigate(GameOverFragmentDirections.actionGameOverFragmentToFiveCrownsTitle())
+            }
+            else if(args.gameType == GLOBAL_GAME_RUMMY)
+            {
+                view.findNavController().navigate(GameOverFragmentDirections.actionGameOverFragmentToRummyTitleFragment())
+            }
             (activity as AppCompatActivity).supportActionBar?.show()
         }
 

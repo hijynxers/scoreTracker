@@ -59,7 +59,7 @@
             app:layout_constraintEnd_toStartOf="@+id/btn_plus"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toEndOf="@+id/btn_minus"
-            app:layout_constraintTop_toTopOf="@+id/btn_minus" />
+            app:layout_constraintTop_toTopOf="@+id/btn_minus" />aq
 
         <ImageButton
             android:id="@+id/btn_plus"
