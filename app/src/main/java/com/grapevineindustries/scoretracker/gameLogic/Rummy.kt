@@ -45,12 +45,12 @@ class Rummy {
             if (allZero) {
                 context?.let {
                     MaterialAlertDialogBuilder(it, R.style.AlertDialogTheme_FiveCrowns)
-                            .setTitle("Do you want to continue?")
-                            .setPositiveButton("Yes") { _, _ ->
+                            .setMessage("Do you want to continue?")
+                            .setPositiveButton("Continue") { _, _ ->
                                 ++GLOBAL_DEALER_IDX
                                 nextRound(playerList, binding, view, context, gameType)
                             }
-                            .setNegativeButton("No") { _, _ ->
+                            .setNegativeButton("Return") { _, _ ->
                                // keepGoing = false
                             }
                             .show()

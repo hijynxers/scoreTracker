@@ -52,12 +52,12 @@ class FiveCrowns {
                 context?.let {
                     MaterialAlertDialogBuilder(it, R.style.AlertDialogTheme_FiveCrowns)
                         .setMessage("Do you want to continue?")
-                        .setPositiveButton("Yes") { _, _ ->
+                        .setPositiveButton("Continue") { _, _ ->
                             ++GLOBAL_DEALER_IDX
                             ++round
                             nextRound(round, playerList, binding, view, context, gameType)
                         }
-                        .setNegativeButton("No") { _, _ ->
+                        .setNegativeButton("Return") { _, _ ->
                             keepGoing = false
                         }
                         .show()

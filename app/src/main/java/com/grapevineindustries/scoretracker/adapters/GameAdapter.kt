@@ -43,7 +43,7 @@ class GameAdapter(private val players: Players): RecyclerView.Adapter<GameAdapte
                 val binding = ListItemGameBinding.inflate(layoutInflater, parent, false)
 
                 binding.listItemGameCalcScoreBtn.setOnClickListener { view: View ->
-                    val builder = MaterialAlertDialogBuilder(parent.context)
+                    val builder = MaterialAlertDialogBuilder(parent.context, R.style.AlertDialogTheme_FiveCrowns)
                     val dialogLayout = layoutInflater.inflate(R.layout.dialog_popup_calc, null)
                     builder.setView(dialogLayout)
 

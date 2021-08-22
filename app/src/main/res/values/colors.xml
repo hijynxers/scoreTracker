@@ -13,4 +13,6 @@
     <color name="colorPrimaryLight">#b66cfb</color>
     <color name="colorAccent">#ffd148</color>
     <color name="colorAccentDark">#c8a005</color>
+
+    <color name="colorDialogButtonGray">#757575</color>
 </resources>
