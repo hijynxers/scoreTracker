@@ -20,6 +20,18 @@
         app:layout_constraintEnd_toEndOf="@+id/btn_calc_sub_3"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <TextView
+        android:id="@+id/calcScore_negative"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAlignment="textEnd"
+        android:textColor="@color/colorAccent"
+        android:textSize="45sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/calcScore"
+        app:layout_constraintEnd_toStartOf="@+id/calcScore"
+        app:layout_constraintTop_toTopOf="@+id/calcScore" />
+
     <Button
         android:id="@+id/btn_calc_sub_1"
         android:layout_width="wrap_content"
@@ -68,7 +80,7 @@
         android:id="@+id/btn_calc_sub_3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="5"
+        android:text="3"
         android:textColor="@color/colorAccent"
         android:textSize="@dimen/calcTextSize"
         app:layout_constraintBottom_toBottomOf="@+id/btn_calc_sub_2"

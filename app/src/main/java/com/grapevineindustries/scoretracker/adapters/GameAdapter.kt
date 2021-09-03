@@ -40,6 +40,15 @@ open class GameAdapter(private val players: Players, val gameType: String): Recy
         }
 
         companion object {
+            private fun addScore(btn: Button, textView: TextView) {
+                if (textView.text == "0")
+                {
+                    textView.text = ""
+                }
+                val text = textView.text.toString() + btn.text.toString()
+                textView.text = text
+            }
+
             fun from(parent: ViewGroup, gameType: String) : ViewHolder {
                 val layoutInflater = LayoutInflater.from(parent.context)
                 val binding = ListItemGameBinding.inflate(layoutInflater, parent, false)
@@ -52,61 +61,66 @@ open class GameAdapter(private val players: Players, val gameType: String): Recy
                         builder.setView(dialogLayout)
 
                         val tvScore = dialogLayout.findViewById<TextView>(R.id.calcScore)
+                        val tvNegative = dialogLayout.findViewById<TextView>(R.id.calcScore_negative)
 
                         val btn1 = dialogLayout.findViewById<Button>(R.id.btn_calc_sub_1)
                         btn1.setOnClickListener { _: View ->
-                            tvScore.text = (tvScore.text.toString().toInt() + 1).toString()
+                            addScore(btn1, tvScore)
                         }
                         val btn2 = dialogLayout.findViewById<Button>(R.id.btn_calc_sub_2)
                         btn2.setOnClickListener { _: View ->
-                            tvScore.text = (tvScore.text.toString().toInt() + 2).toString()
+                            addScore(btn2, tvScore)
                         }
                         val btn3 = dialogLayout.findViewById<Button>(R.id.btn_calc_sub_3)
                         btn3.setOnClickListener { _: View ->
-                            tvScore.text = (tvScore.text.toString().toInt() + 3).toString()
+                            addScore(btn3, tvScore)
                         }
                         val btn4 = dialogLayout.findViewById<Button>(R.id.btn_calc_sub_4)
                         btn4.setOnClickListener { _: View ->
-                            tvScore.text = (tvScore.text.toString().toInt() + 4).toString()
+                            addScore(btn4, tvScore)
                         }
                         val btn5 = dialogLayout.findViewById<Button>(R.id.btn_calc_sub_5)
                         btn5.setOnClickListener { _: View ->
-                            tvScore.text = (tvScore.text.toString().toInt() + 5).toString()
+                            addScore(btn5, tvScore)
                         }
                         val btn6 = dialogLayout.findViewById<Button>(R.id.btn_calc_sub_6)
                         btn6.setOnClickListener { _: View ->
-                            tvScore.text = (tvScore.text.toString().toInt() + 6).toString()
+                            addScore(btn6, tvScore)
                         }
                         val btn7 = dialogLayout.findViewById<Button>(R.id.btn_calc_sub_7)
                         btn7.setOnClickListener { _: View ->
-                            tvScore.text = (tvScore.text.toString().toInt() + 7).toString()
+                            addScore(btn7, tvScore)
                         }
                         val btn8 = dialogLayout.findViewById<Button>(R.id.btn_calc_sub_8)
                         btn8.setOnClickListener { _: View ->
-                            tvScore.text = (tvScore.text.toString().toInt() + 8).toString()
+                            addScore(btn8, tvScore)
                         }
                         val btn9 = dialogLayout.findViewById<Button>(R.id.btn_calc_sub_9)
                         btn9.setOnClickListener { _: View ->
-                            tvScore.text = (tvScore.text.toString().toInt() + 9).toString()
+                            addScore(btn9, tvScore)
                         }
                         val btn0 = dialogLayout.findViewById<Button>(R.id.btn_calc_sub_0)
                         btn0.setOnClickListener { _: View ->
-                            tvScore.text = (tvScore.text.toString().toInt() + 0).toString()
+                            addScore(btn0, tvScore)
                         }
                         val btnSub = dialogLayout.findViewById<Button>(R.id.btn_calc_sub_sub)
                         btnSub.setOnClickListener { _: View ->
-                            var temp = ""
-                            temp = if (tvScore.text.toString()[0] == '-') {
-                                tvScore.text.toString().drop(1)
+                            tvNegative.text = if (tvNegative.text.toString() == "-") {
+                                ""
                             } else {
-                                '-' + tvScore.text.toString()
+                                "-"
                             }
-                            tvScore.text = temp
                         }
 
                         val returnScore = view.findViewById<Button>(R.id.list_item_game_calcScoreBtn)
                         val positiveButtonClick = { _: DialogInterface, _: Int ->
-                            returnScore.text = tvScore.text.toString()
+                            returnScore.text = if (tvNegative.text.toString() == "-")
+                            {
+                                "-" + tvScore.text.toString()
+                            } else {
+                                tvScore.text.toString()
+                            }
+
                         }
                         builder.setPositiveButton("OK", DialogInterface.OnClickListener(function = positiveButtonClick))
                         builder.setNegativeButton("Cancel", null)
