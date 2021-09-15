@@ -25,7 +25,7 @@ class Rummy {
         binding.gameTvWildCard.text = ""
 
         // create instance of the adapter
-        val adapter = GameAdapter(playerList)
+        val adapter = GameAdapter(playerList, gameType)
         // let the recycler view know about the adapter
         binding.gameRecycler.adapter = adapter
 
