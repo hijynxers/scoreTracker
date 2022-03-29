@@ -1,17 +1,12 @@
 package com.grapevineindustries.scoretracker.fragments
 
-import android.content.ContentValues.TAG
 import android.content.DialogInterface
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
-import android.widget.TextView
 import androidx.activity.OnBackPressedCallback
-import androidx.activity.addCallback
 import androidx.databinding.DataBindingUtil
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.grapevineindustries.scoretracker.R
@@ -42,7 +37,7 @@ class GameFragment : Fragment() {
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState);
+        super.onCreate(savedInstanceState)
 
         requireActivity().onBackPressedDispatcher.addCallback(
                 this,
